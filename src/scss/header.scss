@@ -1,0 +1,39 @@
+@use "palette";
+
+.wrapper {
+  max-width: 4000px;
+  margin: 0 auto; // 画面中央に配置
+  background-color: palette.$header_bg;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto; // 画面中央に配置
+    display: flex;
+    align-items: flex-end; // 垂直方向指定 底辺揃え
+    justify-content: space-between; // 両端に設置
+    padding: 12px 4% 18px 4%;
+
+    .link {
+      text-decoration: none;
+      display: flex;
+      align-items: flex-end;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      line-height: inherit;
+      cursor: pointer;
+      &:focus {
+        outline: 0; // button 押したあとの枠を消す
+      }
+
+      h1 { // 文字部分
+        color: palette.$header_fg;
+        font-size: 2.0rem;
+        font-weight: 700;
+        font-family: 'Noto Serif JP', serif;
+        margin-top: 0.4rem;
+      }
+    }
+  }
+
+}
