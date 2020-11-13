@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SPA 側で URL に遷移させるための細工 -->
     <script>
+      // / で分割した最後のパスしか保存されないので注意
       sessionStorage.setItem("redirect", "/" + location.href.trim().split("/").pop());
     </script>
     <meta http-equiv="refresh" content="0;URL=./">

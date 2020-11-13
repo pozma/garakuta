@@ -16,10 +16,10 @@ const Home: React.FC<{}> = () => {
   // URL 直叩きからのリダイレクトか判定
   const redirect = sessionStorage.getItem("redirect");
   if (redirect) {
-    for (const loc of CONST.LOCATIONS) {
-      if (redirect === loc) { // 404 で保存された値がページ URL と一致
+    for (const location of CONST.LOCATIONS) {
+      if (redirect === location) { // 404 で保存された値がページ URL と一致
         const history = useHistory();
-        history.push(redirect); // SPA 側での URL セット
+        history.push(CONST.REPO + redirect); // SPA 側での URL セット
       };
     }
     sessionStorage.removeItem("redirect");
@@ -38,9 +38,9 @@ export const App: React.FC<{}> = () => {
       <Header />
 
       <Switch>
-        <Route exact path="/"><Home /></Route>
-        <Route path="/about"><p>(っ＾ω＾c)</p></Route>
-        <Route path="/waha"><p>わはー</p></Route>
+        <Route exact path="/garakuta"><Home /></Route>
+        <Route path="/garakuta/sample1"><p>(っ＾ω＾c)</p></Route>
+        <Route path="/garakuta/sample2"><p>わはー</p></Route>
       </Switch>
     </BrowserRouter>
     </div>

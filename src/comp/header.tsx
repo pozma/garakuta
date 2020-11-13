@@ -21,8 +21,8 @@ export const Header: React.FC<{}> = () => {
 
         <ul // ナビゲーション
         className={header.nav}>
-          <li><Link to={CONST.LOCATION_URL_ABOUT}>About</Link></li>
-          <li><Link to={CONST.LOCATION_URL_WAHA}>WAHA</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_SAMPLE1}>About</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_SAMPLE2}>WAHA</Link></li>
         </ul>
       </div>
     </div>
