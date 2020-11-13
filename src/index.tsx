@@ -5,6 +5,6 @@ import "./css/reset.css";
 import "./css/style.css";
 
 // コンポーネント読み込み
-import { App } from "./comp/app";
+import { App } from "./app/app";
 
 ReactDOM.render(<App />, document.getElementById('root'));

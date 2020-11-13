@@ -1,0 +1,5 @@
+@use "./../comps/_colors.scss";
+
+// ヘッダー 関連
+$header_bg: colors.$dark; // ヘッダーの背景色
+$header_fg: colors.$white; // ヘッダーの文字色
