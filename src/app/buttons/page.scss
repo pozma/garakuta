@@ -1,0 +1,35 @@
+@use "./../_palette";
+@use "./../../comps/buttons/state.scss";
+
+h1 { // 見出し
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.gallery { // ギャラリー
+  display: grid;
+  grid-template-columns: 50% 50%; // 各行の幅をどうするか
+}
+
+.container { // グリッドの各コンテナ
+  padding: 1rem 2rem;
+
+  h2 { // コンテナのタイトル
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+  }
+  .desc { // サンプルの説明
+    margin-bottom: 1.4rem;
+  }
+  .sample { // 各サンプル
+  }
+
+}
+
+.submit { // ボタンのスタイルクラス
+  @include state.loading;
+}
+

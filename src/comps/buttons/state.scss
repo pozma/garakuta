@@ -1,0 +1,56 @@
+@use "./../_colors";
+
+// ボタンの初期設定
+// @extend で継承する用
+%button { // % ではじめるとCSSに展開されない
+  position: relative;
+  display: inline-block;
+  cursor: pointer; // マウスポインタをクリック可能の外観に
+  outline: none; // クリック後の枠線を非表示
+  padding: 0.6rem 0.9rem;
+  letter-spacing: 0.1em; // 各文字の後ろの余白
+  text-indent: 0.1rem; // 先頭にも同じ値を入れないと中心がズレる
+  font-size: 0.9rem;
+  font-weight: 560;
+  text-align: center;
+  border: 2px solid black; // とりあえずの枠線
+  color: black; // とりあえずの配色
+  background-color: white;
+}
+
+// クリックできない状態
+%inactive {
+  cursor: wait !important;
+}
+
+@mixin simple($fg, $bg) {
+  @extend %button;
+  border: 2px solid;
+  border-radius: 10px; // 角を丸める
+  color: $fg;
+  border-color: $fg;
+  background-color: $bg;
+}
+
+// シンプルな枠付きボタン 黒地に白字
+.simple_dark {
+  @include simple(colors.$white, colors.$dark);
+}
+
+// ロード中（アイコン付き）の様式
+@mixin loading {
+  @extend %button;
+  @extend %inactive;
+  .label { // テキスト＋アイコン
+    display: flex;
+    justify-content: center;
+    p { // テキスト部分
+      margin-left: 0.2rem;
+      margin-right: 0.2rem;
+    }
+  }
+}
+
+
+
+

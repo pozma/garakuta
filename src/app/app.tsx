@@ -2,6 +2,7 @@ import * as React from "react";
 import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom";
 
 import * as CONST from "./../constants";
+import { Buttons } from "./buttons/page";
 
 // SCSS module import
 import style from "./app.scss";
@@ -41,17 +42,20 @@ export const App: React.FC<{}> = () => {
         <div // ナビゲーションバー（左側のやつ）
         className={style.nav}>
           <ul>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_SAMPLE1}>さんぷる１</Link></li>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_SAMPLE2}>さんぷる２</Link></li>
+            <li><Link to={CONST.REPO + CONST.LOCATION_URL_HOME}>ほーむ</Link></li>
+            <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
+            <li><Link to={CONST.REPO + CONST.LOCATION_URL_FORMS}>フォーム</Link></li>
+            <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
           </ul>
         </div>
 
         <div // メインのビュワー
         className={style.main}>
           <Switch>
-            <Route exact path="/garakuta"><Home /></Route>
-            <Route path="/garakuta/sample1"><p>わはー</p></Route>
-            <Route path="/garakuta/sample2"><p>おほー</p></Route>
+            <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
+            <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
+            <Route path={CONST.REPO + CONST.LOCATION_URL_FORMS}><p>おほー</p></Route>
+            <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
           </Switch>
         </div>
       </article>
@@ -59,4 +63,3 @@ export const App: React.FC<{}> = () => {
     </>
   );
 };
-
