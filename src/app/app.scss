@@ -1,10 +1,22 @@
 @use "_palette";
 
+.app { // 画面全体
+  display: grid;
+  min-height: 100vh; // 画面全体を使う（高さ）
+  grid-template-columns: 25% 1fr; // 横 1fr は残りってこと？
+  grid-template-rows: 4.5rem 1fr 4rem; // 縦
+  grid-template-areas:
+    "header   header  "
+    "aside    article "
+    "footer   footer  ";
+}
+
 header { // ヘッダー
-  max-width: 4000px;
-  margin: 0 auto; // 画面中央に配置
-  background-color: palette.$header_bg;
-  padding: 12px 4% 18px 4%;
+  grid-area: header;
+  background: palette.$header_bg;
+  display: flex;
+  align-items: center;
+  padding-left: 4%;
 
   .link { // リンク付きのタイトル
     text-decoration: none;
@@ -12,7 +24,6 @@ header { // ヘッダー
     align-items: flex-end;
     border: none;
     background-color: transparent;
-    padding: 0;
     line-height: inherit;
     cursor: pointer;
     &:focus {
@@ -23,25 +34,17 @@ header { // ヘッダー
       color: palette.$header_fg;
       font-size: 1.5rem;
       font-weight: 600;
-      margin-top: 0.4rem;
+      margin: 0;
     }
   }
 }
 
-article { // コンテンツ
-  // 変数宣言
-  $padding: 2rem;
+aside { // サイドバー領域
+  padding: 2rem;
 
-  display: flex; // サイドバーとビュワーを横並びに
-  font-size: 1rem;
-  padding: $padding;
-
-  .nav { // サイドバー（ナビゲーション）
-    width: 15%;
+  .nav { // ナビゲーション（実際のコンテンツ）
     border: solid 2px black;
-    padding: $padding;
-    margin-right: $padding;
-
+    padding: 2rem;
     ul { // 箇条書き
       li { // 各項目
         list-style: none;
@@ -49,8 +52,23 @@ article { // コンテンツ
       }
     }
   }
+}
 
-  .main { // メインの表示
-    width: 85%;
+article { // コンテンツ
+  padding: 1rem 2rem;
+  padding-left: 0;
+
+  .contents {
   }
 }
+
+footer {
+  grid-area: footer;
+  background: black;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

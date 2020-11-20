@@ -28,7 +28,7 @@ const Home: React.FC<{}> = () => {
 export const App: React.FC<{}> = () => {
 
   return (
-    <>
+    <div className={style.app}>
     <BrowserRouter>
       <header>
         <Link // タイトルロゴ
@@ -38,9 +38,8 @@ export const App: React.FC<{}> = () => {
         </Link>
       </header>
 
-      <article>
-        <div // ナビゲーションバー（左側のやつ）
-        className={style.nav}>
+      <aside>
+        <div className={style.nav}>
           <ul>
             <li><Link to={CONST.REPO + CONST.LOCATION_URL_HOME}>ほーむ</Link></li>
             <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
@@ -48,9 +47,10 @@ export const App: React.FC<{}> = () => {
             <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
           </ul>
         </div>
+      </aside>
 
-        <div // メインのビュワー
-        className={style.main}>
+      <article>
+        <div className={style.contents}>
           <Switch>
             <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
             <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
@@ -59,7 +59,11 @@ export const App: React.FC<{}> = () => {
           </Switch>
         </div>
       </article>
+
+      <footer>
+        <p><small>&copy; 2020 わはー</small></p>
+      </footer>
     </BrowserRouter>
-    </>
+    </div>
   );
 };
