@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const host = "127.0.0.1";
-const port = 3000;
+const port = 3001;
 
 app.listen(port, host);
 app.use("/garakuta", express.static(__dirname + "/"));
