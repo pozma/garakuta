@@ -1,4 +1,4 @@
-@use "./../comps/_colors.scss";
+@use "./../../lib/colors";
 
 // ヘッダー 関連
 $header_bg: colors.$dark; // ヘッダーの背景色

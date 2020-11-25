@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import * as CONST from "./../../constants";
-import * as StateButton from "./../../comps/buttons/state.tsx";
+import * as StateButton from "./../../../lib/buttons/state";
 
 // SCSS module import
 import style from "./page.scss";
