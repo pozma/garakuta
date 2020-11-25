@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom
 
 import * as CONST from "./../constants";
 import { Buttons } from "./buttons/page";
-import { Loader } from "./../../lib/loaders/icons";
 
 // SCSS module import
 import style from "./app.scss";
@@ -36,7 +35,6 @@ export const App: React.FC<{}> = () => {
         className={style.link}
         to={CONST.REPO + CONST.LOCATION_URL_HOME}>
           <h1>がらくた</h1>
-          <Loader />
         </Link>
       </header>
 
