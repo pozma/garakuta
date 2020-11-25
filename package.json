@@ -2,7 +2,7 @@
   "name": "garakuta",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode=development",
     "clean": "rm dist/*.js"
