@@ -3,9 +3,10 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom
 
 import * as CONST from "./../constants";
 import { Buttons } from "./buttons/page";
+import * as LIB from "./../../lib/index";
 
 // SCSS module import
-import style from "./app.scss";
+import style from "./exp.scss";
 
 const Home: React.FC<{}> = () => {
 
@@ -21,7 +22,12 @@ const Home: React.FC<{}> = () => {
     sessionStorage.removeItem("redirect");
   }
 
-  return(<p>ほーむ</p>);
+  return(
+    <>
+      <p>ほーむ</p>
+      <LIB.Loader className={style.loader} />
+    </>
+  );
 };
 
 // 全体の画面

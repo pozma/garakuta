@@ -1,2 +1,7 @@
 import * as React from "react";
-export declare const Loader: React.FC<{}>;
+declare module "react" {
+  // props に className? を取る React.FC の拡張型
+  type FCX<P = {}> = FunctionComponent<P & { className?: string }>
+};
+
+export declare const Loader: React.FCX<{}>;
