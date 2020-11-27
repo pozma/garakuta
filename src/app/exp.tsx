@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom
 
 import * as CONST from "./../constants";
 import { Buttons } from "./buttons/page";
-import { Loader } from "./../../lib/index";
+import { Loaders } from "./loaders/exp";
 
 // SCSS module import
 import style from "./exp.scss";
@@ -25,7 +25,6 @@ const Home: React.FC<{}> = () => {
   return(
     <>
       <p>ほーむ</p>
-      <div className={style.loader} />
     </>
   );
 };
@@ -51,19 +50,19 @@ export const App: React.FC<{}> = () => {
             <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
             <li><Link to={CONST.REPO + CONST.LOCATION_URL_FORMS}>フォーム</Link></li>
             <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
+            <li><Link to={CONST.REPO + CONST.LOCATION_URL_LOADERS}>ローダー</Link></li>
           </ul>
         </div>
       </aside>
 
       <article>
-        <div className={style.contents}>
-          <Switch>
-            <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
-            <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
-            <Route path={CONST.REPO + CONST.LOCATION_URL_FORMS}><p>おほー</p></Route>
-            <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
+          <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
+          <Route path={CONST.REPO + CONST.LOCATION_URL_FORMS}><p>おほー</p></Route>
+          <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
+          <Route path={CONST.REPO + CONST.LOCATION_URL_LOADERS}><Loaders /></Route>
+        </Switch>
       </article>
 
       <footer>
