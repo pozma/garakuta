@@ -2,7 +2,7 @@ import * as React from "react";
 import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom";
 
 import * as CONST from "./../constants";
-import { Buttons } from "./buttons/page";
+import { Buttons } from "./buttons/exp";
 import { Loaders } from "./loaders/exp";
 
 // SCSS module import

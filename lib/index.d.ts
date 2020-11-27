@@ -4,6 +4,10 @@ declare module "react" {
   type FCX<P = {}> = FunctionComponent<P & { className?: string }>
 };
 
-export declare const Loader: {
-  Spin: React.FCX<{}>;
+export declare const Button: {
+  Simple: React.FCX<{
+    label: string;
+    onClick: (e: React.SyntheticEvent) => void;
+  }>;
 }
+

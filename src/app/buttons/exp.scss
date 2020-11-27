@@ -1,5 +1,4 @@
 @use "./../_palette";
-@use "./../../../lib/buttons/state";
 
 h1 { // 見出し
   font-size: 1.4rem;
@@ -29,7 +28,7 @@ h1 { // 見出し
 
 }
 
-.submit { // ボタンのスタイルクラス
-  @include state.loading;
+.simple { // ボタンのスタイルクラス
+  background: gray;
 }
 

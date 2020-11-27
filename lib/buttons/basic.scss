@@ -1,0 +1,6 @@
+@use "../colorset";
+
+.simple {
+  color: colorset.$white;
+  background: colorset.$black;
+}
