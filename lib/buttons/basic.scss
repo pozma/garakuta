@@ -1,6 +1,40 @@
 @use "../colorset";
 
+// ボタンのベーススタイル
+%button {
+  // 表示
+  display: inline-block;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid colorset.$black;
+  border-radius: 10px; // 角を丸める
+  color: colorset.$black;
+  background: colorset.$white;
+
+  // ラベル
+  font-size: 0.8rem;
+  font-weight: 560;
+  text-align: center;
+  letter-spacing: 0.1em; // 各文字の後ろの余白
+  text-indent: 0.1rem; // 先頭にも同じ値を入れないと中心がズレる
+
+  // その他
+  cursor: pointer; // マウスポインタをクリック可能の外観に
+  outline: none; // クリック後の枠線を非表示
+}
+
+// ただのボタン
 .simple {
-  color: colorset.$white;
-  background: colorset.$black;
+  @extend %button;
+}
+
+// ロード状態をもつボタン
+%loading {
+  @extend %button;
+}
+.loading_normal { // 通常状態
+  @extend %loading;
+}
+.loading_busy { // ロード中
+  @extend %loading;
+  cursor: wait;
 }
