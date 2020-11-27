@@ -1,4 +1,5 @@
 @use "_palette";
+@use "./../../lib/animations";
 
 .app { // 画面全体
   display: grid;
@@ -73,4 +74,10 @@ footer {
   align-items: center;
   font-size: 0.8rem;
 }
+
+.loader {
+  @include animations.loader-circles();
+}
+
+
 

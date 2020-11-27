@@ -1,0 +1,132 @@
+@use "../colorset";
+
+// ローディングアニメーション
+// 8個の丸が円形に並んでて順番に点灯してくやつ
+@mixin circles($duration: 1.0s, $color: colorset.$white, $size: 10px) {
+  font-size: $size; // 各丸の位置はこれの相対サイズで計算される
+  width: 1em; // 各丸の幅
+  height: 1em; // 各丸の高さ
+  border-radius: 50%; // 丸を作る
+  animation-name: circles; // 下のアニメーション設定を指定
+  animation-timing-function: linear; // 進行
+  animation-duration: $duration; // 再生時間
+  animation-iteration-count: infinite; // 繰り返し回数
+  transform: translateZ(0);
+
+  $alpha10: rgba($color, 1.0);
+  $alpha08: rgba($color, 0.8);
+  $alpha06: rgba($color, 0.6);
+  $alpha04: rgba($color, 0.4);
+  $alpha02: rgba($color, 0.2);
+  $location: ( // north, east, ... 丸の表示位置
+    n:   0.00em -2.20em 0 0,
+    ne:  1.54em -1.54em 0 0,
+    e:   2.20em  0.00em 0 0,
+    se:  1.54em  1.54em 0 0,
+    s:   0.00em  2.20em 0 0,
+    sw: -1.54em  1.54em 0 0,
+    w:  -2.20em  0.00em 0 0,
+    nw: -1.54em -1.54em 0 0,
+  );
+
+  @keyframes circles { // 各フレームの設定
+    // {{{
+    0%, 100% {
+      box-shadow: 
+        map-get($location, n)  $alpha10,
+        map-get($location, ne) $alpha02,
+        map-get($location, e)  $alpha02,
+        map-get($location, se) $alpha02,
+        map-get($location, s)  $alpha02,
+        map-get($location, sw) $alpha04,
+        map-get($location, w)  $alpha06,
+        map-get($location, nw) $alpha08;
+    }
+
+    12.5% {
+      box-shadow: 
+        map-get($location, n)  $alpha08,
+        map-get($location, ne) $alpha10,
+        map-get($location, e)  $alpha02,
+        map-get($location, se) $alpha02,
+        map-get($location, s)  $alpha02,
+        map-get($location, sw) $alpha02,
+        map-get($location, w)  $alpha04,
+        map-get($location, nw) $alpha06;
+    }
+
+    25% {
+      box-shadow: 
+        map-get($location, n)  $alpha06,
+        map-get($location, ne) $alpha08,
+        map-get($location, e)  $alpha10,
+        map-get($location, se) $alpha02,
+        map-get($location, s)  $alpha02,
+        map-get($location, sw) $alpha02,
+        map-get($location, w)  $alpha02,
+        map-get($location, nw) $alpha04;
+    }
+
+    37.5% {
+      box-shadow: 
+        map-get($location, n)  $alpha04,
+        map-get($location, ne) $alpha06,
+        map-get($location, e)  $alpha08,
+        map-get($location, se) $alpha10,
+        map-get($location, s)  $alpha02,
+        map-get($location, sw) $alpha02,
+        map-get($location, w)  $alpha02,
+        map-get($location, nw) $alpha02;
+    }
+
+    50% {
+      box-shadow: 
+        map-get($location, n)  $alpha02,
+        map-get($location, ne) $alpha04,
+        map-get($location, e)  $alpha06,
+        map-get($location, se) $alpha08,
+        map-get($location, s)  $alpha10,
+        map-get($location, sw) $alpha02,
+        map-get($location, w)  $alpha02,
+        map-get($location, nw) $alpha02;
+    }
+
+    62.5% {
+      box-shadow: 
+        map-get($location, n)  $alpha02,
+        map-get($location, ne) $alpha02,
+        map-get($location, e)  $alpha04,
+        map-get($location, se) $alpha06,
+        map-get($location, s)  $alpha08,
+        map-get($location, sw) $alpha10,
+        map-get($location, w)  $alpha02,
+        map-get($location, nw) $alpha02;
+    }
+
+    75% {
+      box-shadow: 
+        map-get($location, n)  $alpha02,
+        map-get($location, ne) $alpha02,
+        map-get($location, e)  $alpha02,
+        map-get($location, se) $alpha04,
+        map-get($location, s)  $alpha06,
+        map-get($location, sw) $alpha08,
+        map-get($location, w)  $alpha10,
+        map-get($location, nw) $alpha02;
+    }
+
+    87.5% {
+      box-shadow: 
+        map-get($location, n)  $alpha02,
+        map-get($location, ne) $alpha02,
+        map-get($location, e)  $alpha02,
+        map-get($location, se) $alpha02,
+        map-get($location, s)  $alpha04,
+        map-get($location, sw) $alpha06,
+        map-get($location, w)  $alpha08,
+        map-get($location, nw) $alpha10;
+    }
+    // }}}
+  }
+}
+

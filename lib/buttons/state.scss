@@ -1,4 +1,4 @@
-@use "./../_colors";
+@use "../colorset";
 
 // ボタンの初期設定
 // @extend で継承する用
@@ -34,7 +34,7 @@
 
 // シンプルな枠付きボタン 黒地に白字
 .simple_dark {
-  @include simple(colors.$white, colors.$dark);
+  @include simple(colorset.$white, colorset.$dark);
 }
 
 // ロード中（アイコン付き）の様式

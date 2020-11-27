@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom
 
 import * as CONST from "./../constants";
 import { Buttons } from "./buttons/page";
-import * as LIB from "./../../lib/index";
+import { Loader } from "./../../lib/index";
 
 // SCSS module import
 import style from "./exp.scss";
@@ -25,7 +25,7 @@ const Home: React.FC<{}> = () => {
   return(
     <>
       <p>ほーむ</p>
-      <LIB.Loader className={style.loader} />
+      <div className={style.loader} />
     </>
   );
 };
