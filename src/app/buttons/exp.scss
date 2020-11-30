@@ -10,20 +10,21 @@
 
 }
 
-.container { // グリッドの各コンテナ
+.entry { // 各項目
   padding: 1rem 2rem;
 
-  h2 { // コンテナのタイトル
-    font-size: 1.1rem;
-    font-weight: normal;
-    margin-bottom: 1rem;
-  }
+  & > { // 直接の子要素（サンプルコンポーネント内に影響しないように）
+    h2 { // コンテナのタイトル
+      font-size: 1.1rem;
+      font-weight: normal;
+      margin-bottom: 1rem;
+    }
 
-  .desc { // サンプルの説明
-    margin-bottom: 1.4rem;
-  }
-  .sample { // 各サンプル
-  }
+    p { // サンプルの説明
+      line-height: 1.5rem;
+      margin-bottom: 1.4rem;
+    }
 
+  }
 }
 

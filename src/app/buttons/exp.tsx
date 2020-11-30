@@ -4,9 +4,20 @@ import * as CONST from "./../../constants";
 import { Button } from "./../../../lib/index";
 import style from "./exp.scss";
 
-const delay = 5; // 状態の切替時間（sec）
+const delay = 4; // 状態の切替時間（sec）
 
-const LoadingSample: React.FC<{}> = () => {
+// ただのボタン
+const Simple: React.FC<{}> = () => {
+  return(
+    <Button.Simple 
+      label="しんぷるぼたん"
+      onClick={() => {console.log("Button.Simpleがクリックされた")}}
+    />
+  );
+};
+
+// 「ロード中」をもつボタン
+const Loading: React.FC<{}> = () => {
 
   const [isLoading, setIsLoading] = useState(false); // true ならロード中
   const onClick = () => {
@@ -26,19 +37,36 @@ const LoadingSample: React.FC<{}> = () => {
   );
 };
 
+const buttonList = [
+  {
+    title: "Button.Simple", 
+    desc: "何の変哲もないただのボタン．", 
+    comp: <Simple />,
+  },
+  {
+    title: "Button.Loading", 
+    desc: "ロード中で外観が変化するボタン．ロード中はクリックできなくなる．", 
+    comp: <Loading />,
+  },
+];
+
 export const Buttons: React.FC<{}> = () => {
 
   return(
     <div className={style.wrapper}>
+      <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js" />
       <h1>ボタン</h1>
       <hr />
 
-      <Button.Simple 
-        label="しんぷるぼたん"
-        onClick={() => {console.log("Button.Simpleがクリックされた")}}
-      />
-
-      <LoadingSample />
+      {buttonList.map((e, i) => {
+        return(
+          <div key={i} className={style.entry}>
+            <h2>{e.title}</h2>
+            <p>{e.desc}</p>
+            {e.comp}
+          </div>
+        );
+      })}
 
     </div>
   );
