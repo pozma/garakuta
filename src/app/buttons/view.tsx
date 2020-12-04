@@ -30,7 +30,7 @@ const Loading: React.FC<{}> = () => {
 
   return(
     <Button.Loading 
-      labels={[<p>通常</p>, <p>ロード中</p>]}
+      labels={["通常", "ロード中"]}
       isLoading={isLoading}
       onClick={onClick}
     />
@@ -43,7 +43,7 @@ const buttonList = [
     desc: "何の変哲もないただのボタン．", 
     comp: <Simple />,
     code: String.raw`<Button.Simple 
-  label="しんぷるぼたん"
+  label="しんぷるぼたん" // JSXも可
   onClick={() => {console.log("Button.Simple がクリックされた")}}
 />`,
   },
@@ -53,7 +53,7 @@ const buttonList = [
     desc: "ロード中で外観が変化するボタン．ロード中はクリックできなくなる．", 
     comp: <Loading />,
     code: String.raw`<Button.Loading 
-  labels={[<p>通常</p>, <p>ロード中</p>]}
+  labels={["通常", "ロード中"]} // JSXも可
   isLoading={isLoading}
   onClick={onClick}
 />`,
@@ -74,7 +74,7 @@ export const Buttons: React.FC<{}> = () => {
             <h2>{e.title}</h2>
             <p>{e.desc}</p>
             {e.comp}
-            <pre className="prettyprint linenums">{e.code}</pre>
+            <pre className="prettyprint lang-js linenums">{e.code}</pre>
           </div>
         );
       })}
