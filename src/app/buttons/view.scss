@@ -25,6 +25,10 @@
       margin-bottom: 1.4rem;
     }
 
+    pre ol > li { // スニペットの表示：google prettyprint の中の li をいじる
+      list-style-type: decimal; // 各行で行番号を表示
+    }
+
   }
 }
 

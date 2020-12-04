@@ -42,11 +42,21 @@ const buttonList = [
     title: "Button.Simple", 
     desc: "何の変哲もないただのボタン．", 
     comp: <Simple />,
+    code: String.raw`<Button.Simple 
+  label="しんぷるぼたん"
+  onClick={() => {console.log("Button.Simple がクリックされた")}}
+/>`,
   },
+
   {
     title: "Button.Loading", 
     desc: "ロード中で外観が変化するボタン．ロード中はクリックできなくなる．", 
     comp: <Loading />,
+    code: String.raw`<Button.Loading 
+  labels={[<p>通常</p>, <p>ロード中</p>]}
+  isLoading={isLoading}
+  onClick={onClick}
+/>`,
   },
 ];
 
@@ -64,6 +74,7 @@ export const Buttons: React.FC<{}> = () => {
             <h2>{e.title}</h2>
             <p>{e.desc}</p>
             {e.comp}
+            <pre className="prettyprint linenums">{e.code}</pre>
           </div>
         );
       })}
