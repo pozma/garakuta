@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import * as CONST from "./../../constants";
 import { Button } from "./../../../lib/index";
-import style from "./exp.scss";
+import style from "./view.scss";
 
 const delay = 4; // 状態の切替時間（sec）
 

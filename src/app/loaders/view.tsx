@@ -2,7 +2,7 @@ import * as React from "react";
 import * as CONST from "./../../constants";
 
 // SCSS module import
-import style from "./exp.scss";
+import style from "./view.scss";
 
 export const Loaders: React.FC<{}> = () => {
 

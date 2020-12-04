@@ -2,11 +2,11 @@ import * as React from "react";
 import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom";
 
 import * as CONST from "./../constants";
-import { Buttons } from "./buttons/exp";
-import { Loaders } from "./loaders/exp";
+import { Buttons } from "./buttons/view";
+import { Loaders } from "./loaders/view";
 
 // SCSS module import
-import style from "./exp.scss";
+import style from "./view.scss";
 
 const Home: React.FC<{}> = () => {
 
