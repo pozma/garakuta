@@ -40,23 +40,44 @@ const Loading: React.FC<{}> = () => {
 const buttonList = [
   {
     title: "Button.Simple", 
-    desc: "何の変哲もないただのボタン．", 
+    desc: <p>何の変哲もないただのボタン</p>, 
     comp: <Simple />,
-    code: String.raw`<Button.Simple 
-  label="しんぷるぼたん" // JSXも可
-  onClick={() => {console.log("Button.Simple がクリックされた")}}
-/>`,
+    code: String.raw`const Simple: React.FC<{}> = () => {
+  return(
+    <Button.Simple 
+      label="しんぷるぼたん"
+      onClick={() => {console.log("Button.Simpleがクリックされた")}}
+    />
+  );
+};`, //` シンタックスのバグ避け
   },
 
   {
     title: "Button.Loading", 
-    desc: "ロード中で外観が変化するボタン．ロード中はクリックできなくなる．", 
+    desc: <>
+      <p>通常時とロード時とで外観が変化するボタン</p>
+      <p>ロード中はクリックできなくなる</p>
+    </>, 
     comp: <Loading />,
-    code: String.raw`<Button.Loading 
-  labels={["通常", "ロード中"]} // JSXも可
-  isLoading={isLoading}
-  onClick={onClick}
-/>`,
+    code: String.raw`const Loading: React.FC<{}> = () => {
+
+  const [isLoading, setIsLoading] = useState(false); // true ならロード中
+  const onClick = () => {
+    console.log("Button.Loadingがクリックされた")
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, delay * 1000);
+  };
+
+  return(
+    <Button.Loading 
+      labels={["通常", "ロード中"]}
+      isLoading={isLoading}
+      onClick={onClick}
+    />
+  );
+};`, //` シンタックスのバグ避け
   },
 ];
 
@@ -70,11 +91,16 @@ export const Buttons: React.FC<{}> = () => {
 
       {buttonList.map((e, i) => {
         return(
-          <div key={i} className={style.entry}>
+          <div key={i} className={style.item}>
             <h2>{e.title}</h2>
-            <p>{e.desc}</p>
-            {e.comp}
-            <pre className="prettyprint lang-js linenums">{e.code}</pre>
+            <div className={style.flex}>
+              <div className={style.desc}>{e.desc}</div>
+              <div className={style.sample}>{e.comp}</div>
+            </div>
+            <details>
+              <summary>サンプルコード</summary>
+              <pre className="prettyprint lang-js linenums">{e.code}</pre>
+            </details>
           </div>
         );
       })}

@@ -4,4 +4,15 @@
 $header_bg: colorset.$dark; // ヘッダーの背景色
 $header_fg: colorset.$white; // ヘッダーの文字色
 
+// メイン
+$main_fg: colorset.$darker;
+$main_bg: colorset.$white;
+$sub_fg: colorset.$darkgray;
+$accent_fg: colorset.$purple;
+$highlight_fg: colorset.$yellow;
+
+// 装飾
+$dec_black: colorset.$black;
+$dec_lightgray: colorset.$lightgray;
+$dec_purple: colorset.$purple;
 

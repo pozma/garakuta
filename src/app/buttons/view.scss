@@ -10,50 +10,89 @@
 
 }
 
-.entry { // 各項目
-  padding: 1rem 2rem;
+.item { // 各項目
+  padding: 1rem;
+  border-top: solid palette.$dec_black 2px;
+  margin-top: 3rem;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0.1rem;
+    left: 0;
+    width: 100%;
+    border-top: solid palette.$dec_purple 2px;
+    content: "";
+  }
 
   & > { // 直接の子要素（サンプルコンポーネント内に影響しないように）
     h2 { // コンテナのタイトル
+      position: absolute;
+      top: -1.5rem;
+      border: solid palette.$dec_black 2px;
+      padding: 1rem;
+      background: palette.$main_bg;
       font-size: 1.1rem;
       font-weight: normal;
-      margin-bottom: 1rem;
     }
 
-    p { // サンプルの説明
-      line-height: 1.5rem;
-      margin-bottom: 1.4rem;
-    }
+    .flex {
+      display: flex;
+      justify-content: space-between;
 
-    pre ol { // スニペットの表示 prettyprint に linenums をつけることで ol になる
-      $accentColor: #aaa; // 行番号と区切り線の色
-      padding: 0.5rem;
-      padding-left: 3.2rem;
-      counter-reset: item; // CSS のカウンタ機能
-      position: relative;
-
-      &::before { // 行番号との区切り線
-        position: absolute;
-        top: 0;
-        left: 2.5rem;
-        height: 100%;
-        border-left: solid $accentColor 1px;
-        content: " ";
+      .desc { // サンプルの説明
+          padding-top: 2rem;
+          padding-bottom: 1rem;
+        p { // 文（各行）
+          font-size: 0.85rem;
+          line-height: 1.5rem;
+          color: palette.$sub_fg;
+        }
       }
-      
-      & > li { // スニペットの各行
-        list-style: none; // しかし li の番号は使わない（1. とかいうのになるので）
-        font-size: 0.8rem;
-        line-height: 1.2rem;
+
+      .sample { // コンポーネントのサンプル
+        padding: 1rem;
+      }
+    }
+
+    details { // 簡素な折りたたみ
+
+      summary { // 折りたたみの見出し
+        margin-bottom: 1rem;
+        cursor: pointer;
+        color: palette.$sub_fg;
+      }
+
+      pre ol { // スニペットの表示 prettyprint に linenums をつけることで ol になる
+        $accentColor: palette.$dec_lightgray; // 行番号と区切り線の色
+        padding: 0.5rem;
+        padding-left: 3.2rem;
+        counter-reset: item; // CSS のカウンタ機能
         position: relative;
 
-        &::before { // 行番号
+        &::before { // 行番号との区切り線
           position: absolute;
-          transform: translateX(-100%); // 基準位置を左上に
-          left: -1.3rem;
-          color: $accentColor;
-          counter-increment: item; // item カウンタをインクリメント
-          content: counter(item); // カウンタの数字を表示
+          top: 0;
+          left: 2.5rem;
+          height: 100%;
+          border-left: solid $accentColor 1px;
+          content: "";
+        }
+        
+        & > li { // スニペットの各行
+          list-style: none; // しかし li の番号は使わない（1. とかいうのになるので）
+          font-size: 0.85rem;
+          line-height: 1.2rem;
+          position: relative;
+
+          &::before { // 行番号
+            position: absolute;
+            transform: translateX(-100%); // 基準位置を左上に
+            left: -1.3rem;
+            color: $accentColor;
+            counter-increment: item; // item カウンタをインクリメント
+            content: counter(item); // カウンタの数字を表示
+          }
         }
       }
     }
