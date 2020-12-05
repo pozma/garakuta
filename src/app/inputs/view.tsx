@@ -6,17 +6,17 @@ import { Input } from "./../../../lib/index";
 import style from "./view.scss";
 
 // 単純な１行入力
-const SimpleTextSample: React.FC<{}> = () => {
+const LabeledTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Text.Simple 
+    <Input.Text.Labeled 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.labeled} // 追加のスタイル指定（option）
     />
   );
 };
@@ -47,17 +47,17 @@ const PlaceholderTextSample: React.FC<{}> = () => {
 
 
 // パスワード入力の箱
-const SimplePasswordSample: React.FC<{}> = () => {
+const LabeledPasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Password.Simple 
+    <Input.Password.Labeled 
       label="ぱすわーど" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.labeled} // 追加のスタイル指定（option）
     />
   );
 };
@@ -92,22 +92,22 @@ const PlaceholderPasswordSample: React.FC<{}> = () => {
 // サンプルリスト
 const inputList = [
   {
-    title: "Input.Text.Simple", 
-    desc: <p>１行入力用の単純な箱</p>, 
-    comp: <SimpleTextSample />,
+    title: "Input.Text.Labeled", 
+    desc: <p>ラベル付きの箱</p>, 
+    comp: <LabeledTextSample />,
     code:
     // {{{
-      String.raw`const SimpleTextSample: React.FC<{}> = () => {
+      String.raw`const LabeledTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Text.Simple 
+    <Input.Text.Labeled 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.labeled} // 追加のスタイル指定（option）
     />
   );
 };`, //` シンタックスのバグ避け
@@ -116,7 +116,7 @@ const inputList = [
 
   {
     title: "Input.Text.Placeholder", 
-    desc: <><p>プレースホルダーになんか表示するタイプの１行入力</p><p>メッセージ（アラート）表示欄付き</p></>,
+    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>メッセージ（アラート）表示欄付き</p></>,
     comp: <PlaceholderTextSample />,
     code:
     // {{{
@@ -145,22 +145,22 @@ const inputList = [
   },
 
   {
-    title: "Input.Password.Simple", 
-    desc: <><p>パスワード入力用の箱</p><p>マスク表示を切り替えられる</p></>, 
-    comp: <SimplePasswordSample />,
+    title: "Input.Password.Labeled", 
+    desc: <p>ラベル付きの箱</p>,
+    comp: <LabeledPasswordSample />,
     code:
     // {{{
-      String.raw`const SimplePasswordSample: React.FC<{}> = () => {
+      String.raw`const LabeledPasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Password.Simple 
+    <Input.Password.Labeled 
       label="ぱすわーど" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.labeled} // 追加のスタイル指定（option）
     />
   );
 };`, //` シンタックスのバグ避け

@@ -36,7 +36,7 @@ export declare const Button: {
 export declare const Input: {
 
   Text: {
-    Simple: React.FCXI<{
+    Labeled: React.FCXI<{
       label: label;
     }>;
 
@@ -48,7 +48,7 @@ export declare const Input: {
   };
 
   Password: {
-    Simple: React.FCXI<{
+    Labeled: React.FCXI<{
       label: label;
     }>;
 

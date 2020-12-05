@@ -5,11 +5,11 @@ import style from "./text.scss";
 type label = string | JSX.Element;
 
 // 単純なテキスト入力フィールド
-export const Simple: React.FCXI<{
+export const Labeled: React.FCXI<{
   label: label; // 入力項目名
 }> = (props) => {
   return(
-    <div className={`${style.simple} ${props.className}`}>
+    <div className={`${style.labeled} ${props.className}`}>
       <label>
         <h1>{props.label}</h1>
         <input 

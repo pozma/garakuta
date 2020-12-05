@@ -1,6 +1,6 @@
 @use "../palette";
 
-.simple label > { // 全体を label でラップしてる
+.labeled label > { // 全体を label でラップしてる
   h1 { // 入力項目名
     font-weight: normal;
     font-size: 0.9rem;

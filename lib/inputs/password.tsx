@@ -8,12 +8,12 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 type label = string | JSX.Element;
 
 // マスク表示切替機能付きのパスワード入力欄
-export const Simple: React.FCXI<{
+export const Labeled: React.FCXI<{
   label: label; // 入力項目名
 }> = (props) => {
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.simple} ${props.className}`}>
+    <div className={`${style.labeled} ${props.className}`}>
       <label>
         <h1>{props.label}</h1>
         <span>
