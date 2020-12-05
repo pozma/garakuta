@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import * as CONST from "./../../constants";
+import { Samples } from "../sample";
 import { Button } from "./../../../lib/index";
 import style from "./view.scss";
 
@@ -15,6 +16,7 @@ const Simple: React.FC<{}> = () => {
     />
   );
 };
+
 
 // 「ロード中」をもつボタン
 const Loading: React.FC<{}> = () => {
@@ -37,6 +39,8 @@ const Loading: React.FC<{}> = () => {
   );
 };
 
+
+// サンプルリスト
 const buttonList = [
   {
     title: "Button.Simple", 
@@ -81,6 +85,7 @@ const buttonList = [
   },
 ];
 
+
 export const Buttons: React.FC<{}> = () => {
 
   return(
@@ -88,23 +93,7 @@ export const Buttons: React.FC<{}> = () => {
       <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js" />
       <h1>ボタン</h1>
       <hr />
-
-      {buttonList.map((e, i) => {
-        return(
-          <div key={i} className={style.item}>
-            <h2>{e.title}</h2>
-            <div className={style.flex}>
-              <div className={style.desc}>{e.desc}</div>
-              <div className={style.sample}>{e.comp}</div>
-            </div>
-            <details>
-              <summary>サンプルコード</summary>
-              <pre className="prettyprint lang-js linenums">{e.code}</pre>
-            </details>
-          </div>
-        );
-      })}
-
+      <Samples sampleList={buttonList} />
     </div>
   );
 };
