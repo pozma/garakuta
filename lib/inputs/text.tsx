@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
 import style from "./text.scss";
-// icon, animation
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type label = string | JSX.Element;
 

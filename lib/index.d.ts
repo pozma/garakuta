@@ -47,5 +47,17 @@ export declare const Input: {
     }>;
   };
 
+  Password: {
+    Simple: React.FCXI<{
+      label: label;
+    }>;
+
+    Placeholder: React.FCXI<{
+      label: label;
+      placeholder: string;
+      alert: label;
+    }>;
+  };
+
 }
 
