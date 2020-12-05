@@ -18,6 +18,8 @@ export const Simple: React.FCXI<{
           type="text" 
           value={props.value} 
           onChange={props.onChange}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
         />
       </label>
     </div>
@@ -28,6 +30,7 @@ export const Simple: React.FCXI<{
 export const Placeholder: React.FCXI<{
   label: label; // 入力項目名
   placeholder: string;
+  alert: label;
 }> = (props) => {
   return(
     <div className={`${style.placeholder} ${props.className}`}>
@@ -38,27 +41,10 @@ export const Placeholder: React.FCXI<{
           placeholder={props.placeholder}
           value={props.value} 
           onChange={props.onChange}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
         />
-      </label>
-    </div>
-  );
-};
-
-// 入力値チェック付き
-export const Validation: React.FCXI<{
-  label: label; // 入力項目名
-  placeholder: string;
-}> = (props) => {
-  return(
-    <div className={`${style.validation} ${props.className}`}>
-      <label>
-        <h1>{props.label}</h1>
-        <input 
-          type="text" 
-          placeholder={props.placeholder}
-          value={props.value} 
-          onChange={props.onChange}
-        />
+        <p>{props.alert}</p>
       </label>
     </div>
   );

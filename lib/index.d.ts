@@ -10,6 +10,8 @@ declare module "react" {
   type FCXI<P = {}> = FCX<P & { 
     value: string; // 入力値
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }>
 };
 
@@ -41,11 +43,7 @@ export declare const Input: {
     Placeholder: React.FCXI<{
       label: label;
       placeholder: string;
-    }>;
-
-    Validation: React.FCXI<{
-      label: label;
-      placeholder: string;
+      alert: label;
     }>;
   };
 

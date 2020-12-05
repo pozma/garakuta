@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as CONST from "./../../constants";
 import { Samples } from "../sample";
 import { Input } from "./../../../lib/index";
@@ -13,8 +13,10 @@ const SimpleInputSample: React.FC<{}> = () => {
     <Input.Text.Simple 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
-      onChange={(e) => setValue(e.target.value)}
-      className={style.simple} // 追加のスタイル指定（オプション）
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.simple} // 追加のスタイル指定（option）
     />
   );
 };
@@ -24,29 +26,21 @@ const SimpleInputSample: React.FC<{}> = () => {
 const PlaceholderInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
+  const [alert, setAlert] = useState("");
+  const wrongInputAlert = "使用できない文字が含まれています！";
+  useEffect(() => { // 入力値のチェック
+    setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? wrongInputAlert : "");
+  }, [value]);
   return(
     <Input.Text.Placeholder 
-      label="プレースホルダー付き入力" // JSXも可
-      placeholder="プレースホルダーのテキスト" // これはstringのみ
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      className={style.placeholder} // 追加のスタイル指定（オプション）
-    />
-  );
-};
-
-
-// 入力値チェック付き
-const ValidationInputSample: React.FC<{}> = () => {
-
-  const [value, setValue] = useState("");
-  return(
-    <Input.Text.Validation 
-      label="Username" // JSXも可
+      label="USERNAME" // JSXも可
       placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
+      alert={alert} // JSXも可
       value={value}
-      onChange={(e) => setValue(e.target.value)}
-      className={style.validation} // 追加のスタイル指定（オプション）
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.placeholder} // 追加のスタイル指定（option）
     />
   );
 };
@@ -58,45 +52,53 @@ const inputList = [
     title: "Input.Text.Simple", 
     desc: <p>１行入力用の単純な箱</p>, 
     comp: <SimpleInputSample />,
-    code: String.raw`const SimpleInputSample: React.FC<{}> = () => {
+    code:
+    // {{{
+      String.raw`const SimpleInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
     <Input.Text.Simple 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
-      onChange={(e) => setValue(e.target.value)}
-      className={style.simple} // 追加のスタイル指定（オプション）
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.simple} // 追加のスタイル指定（option）
     />
   );
 };`, //` シンタックスのバグ避け
+    // }}}
   },
 
   {
     title: "Input.Text.Placeholder", 
-    desc: <p>プレースホルダーになんか表示するタイプの１行入力</p>, 
+    desc: <><p>プレースホルダーになんか表示するタイプの１行入力</p><p>メッセージ（アラート）表示欄付き</p></>,
     comp: <PlaceholderInputSample />,
-    code: String.raw`const PlaceholderInputSample: React.FC<{}> = () => {
+    code:
+    // {{{
+      String.raw`const PlaceholderInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
+  const [alert, setAlert] = useState("");
+  const wrongInputAlert = "使用できない文字が含まれています！";
+  useEffect(() => { // 入力値のチェック
+    setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? wrongInputAlert : "");
+  }, [value]);
   return(
     <Input.Text.Placeholder 
-      label="プレースホルダー付き入力" // JSXも可
-      placeholder="プレースホルダーのテキスト" // これはstringのみ
+      label="USERNAME" // JSXも可
+      placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
+      alert={alert} // JSXも可
       value={value}
-      onChange={(e) => setValue(e.target.value)}
-      className={style.placeholder} // 追加のスタイル指定（オプション）
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.placeholder} // 追加のスタイル指定（option）
     />
   );
 };`, //` シンタックスのバグ避け
-  },
-
-  {
-    title: "Input.Text.Validation", 
-    desc: <p>入力値チェック付きの１行入力</p>,
-    comp: <ValidationInputSample />,
-    code: String.raw`
-`, //` シンタックスのバグ避け
+    // }}}
   },
 
 ];
