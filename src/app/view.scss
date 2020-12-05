@@ -4,8 +4,8 @@
 .app { // 画面全体
   display: grid;
   min-height: 100vh; // 画面全体を使う（高さ）
-  grid-template-columns: 300px 1fr; // 横 1fr は残りってこと？
-  grid-template-rows: 4.5rem 1fr 4rem; // 縦
+  grid-template-columns: 270px 1fr; // 横 1fr は残りってこと？
+  grid-template-rows: 4.0rem 1fr 4rem; // 縦
   grid-template-areas:
     "header   header  "
     "aside    article "
@@ -16,41 +16,33 @@ header { // ヘッダー
   grid-area: header;
   background: palette.$header_bg;
   display: flex;
-  align-items: center;
-  padding-left: 4%;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 4% 1.2rem 4%;
 
-  .link { // リンク付きのタイトル
+  a { // リンク（タイトルもgihubも）
     text-decoration: none;
-    display: flex;
-    align-items: flex-end;
-    border: none;
-    background-color: transparent;
-    line-height: inherit;
-    cursor: pointer;
-    &:focus {
-      outline: 0; // button 押したあとの枠を消す
-    }
-
-    h1 { // 文字部分
-      color: palette.$header_fg;
+    color: palette.$header_fg;
+    h1 { // タイトル
       font-size: 1.5rem;
       font-weight: 600;
       margin: 0;
     }
+    p { // github url
+      font-size: 0.8rem;
+      text-decoration: underline;
+    }
   }
 }
 
-aside { // サイドバー領域
-  padding: 2rem;
-
-  .nav { // ナビゲーション（実際のコンテンツ）
+nav { // ナビゲーション（実際のコンテンツ）
+padding: 2rem;
+  ul { // 箇条書き
     border: solid 2px black;
     padding: 2rem;
-    ul { // 箇条書き
-      li { // 各項目
-        list-style: none;
-        margin-bottom: 1rem;
-      }
+    li { // 各項目
+      list-style: none;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -62,17 +54,13 @@ article { // コンテンツ
 
 footer {
   grid-area: footer;
-  background: black;
-  color: white;
+  background: palette.$header_bg;
+  color: palette.$header_fg;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-}
-
-.loader {
-  @include animations.loader-circles();
 }
 
 

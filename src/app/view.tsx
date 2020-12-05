@@ -36,24 +36,21 @@ export const App: React.FC<{}> = () => {
     <div className={style.app}>
     <BrowserRouter>
       <header>
-        <Link // タイトルロゴ
-        className={style.link}
-        to={CONST.REPO + CONST.LOCATION_URL_HOME}>
-          <h1>がらくた</h1>
-        </Link>
+        <Link to={CONST.REPO + CONST.LOCATION_URL_HOME}><h1>garakuta</h1></Link>
+        <a href={CONST.GITHUB_URL} target="_blank" rel="noopener noreferrer">
+          <p>{CONST.GITHUB_URL}</p>
+        </a>
       </header>
 
-      <aside>
-        <div className={style.nav}>
-          <ul>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_HOME}>ほーむ</Link></li>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_FORMS}>フォーム</Link></li>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
-            <li><Link to={CONST.REPO + CONST.LOCATION_URL_LOADERS}>ローダー</Link></li>
-          </ul>
-        </div>
-      </aside>
+      <nav>
+        <ul>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_HOME}>ほーむ</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_FORMS}>フォーム</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_LOADERS}>ローダー</Link></li>
+        </ul>
+      </nav>
 
       <article>
         <Switch>
