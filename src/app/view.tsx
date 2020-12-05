@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom
 
 import * as CONST from "./../constants";
 import { Buttons } from "./buttons/view";
+import { Inputs } from "./inputs/view";
 import { Loaders } from "./loaders/view";
 
 // SCSS module import
@@ -46,6 +47,7 @@ export const App: React.FC<{}> = () => {
         <ul>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_HOME}>ほーむ</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_INPUTS}>フォーム部品</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_FORMS}>フォーム</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_LOADERS}>ローダー</Link></li>
@@ -56,6 +58,7 @@ export const App: React.FC<{}> = () => {
         <Switch>
           <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
+          <Route path={CONST.REPO + CONST.LOCATION_URL_INPUTS}><Inputs /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_FORMS}><p>おほー</p></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_LOADERS}><Loaders /></Route>

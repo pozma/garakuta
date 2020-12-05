@@ -1,0 +1,17 @@
+@use "./../palette";
+@use "./../sample";
+
+.wrapper {
+  @include sample.wrapper();
+}
+
+.simple {
+  width: 15rem;
+}
+
+.loading {
+  width: 10rem;
+}
+.loadingAlt {
+}
+

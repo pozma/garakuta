@@ -6,9 +6,15 @@ declare module "react" {
   type FCXB<P = {}> = FCX<P & { 
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
   }>
+  // props に value, setValue を取る型（インプット用）
+  type FCXI<P = {}> = FCX<P & { 
+    value: string; // 入力値
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }>
 };
 
 type label = string | JSX.Element;
+
 
 export declare const Button: {
 
@@ -20,6 +26,15 @@ export declare const Button: {
     labels: [label, label];
     isLoading: boolean;
     altClassName?: string;
+  }>;
+
+}
+
+
+export declare const Input: {
+
+  Simple: React.FCXI<{
+    label: label;
   }>;
 
 }

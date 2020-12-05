@@ -4,31 +4,6 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-// 単純なテキスト入力フィールド
-export const TextInput: React.FC<{
-  title: string; // 入力項目名
-  value: string; // 入力値
-  setValue: React.Dispatch<React.SetStateAction<string>>; // 入力状態更新関数
-  style: {[className: string]: string}; // 親コンポーネントご指定のスタイル
-}> = (props) => {
-  return(
-    <div className={props.style.input}>
-      <label>
-        <div className={props.style.label}>
-          <span className={props.style.title}>{props.title}</span>
-        </div>
-        <input 
-          type="text" 
-          className={props.style.field}
-          value={props.value} 
-          onChange={(e) => props.setValue(e.target.value)}
-        />
-      </label>
-    </div>
-  );
-};
-
-
 // 単純なテキストエリア入力フィールド
 export const TextArea: React.FC<{
   title: string; // 入力項目名
