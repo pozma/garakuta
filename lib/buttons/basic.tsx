@@ -10,8 +10,9 @@ export const Simple: React.FCXB<{
 
   return (
     <button
-    className={`${style.simple} ${props.className}`}
-    onClick={props.onClick}>
+      className={`${style.simple} ${props.className}`}
+      onClick={props.onClick}
+    >
       {props.label}
     </button>
   );
@@ -27,16 +28,18 @@ export const Loading: React.FCXB<{
 
   const normal: JSX.Element = ( // 通常状態
     <button
-    className={`${style.loading_normal} ${props.className}`}
-    onClick={props.onClick}>
+      className={`${style.loading_normal} ${props.className}`}
+      onClick={props.onClick}
+    >
       {props.labels[0]}
     </button>
   );
 
   const busy: JSX.Element = ( // ロード中
     <button
-    className={`${style.loading_busy} ${props.className} ${props.altClassName}`}
-    onClick={() => {}}>
+      className={`${style.loading_busy} ${props.className} ${props.altClassName}`}
+      onClick={() => {}}
+    >
       {props.labels[1]}
     </button>
   );
