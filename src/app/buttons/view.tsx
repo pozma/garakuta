@@ -63,7 +63,7 @@ const buttonList = [
   {
     title: "Button.Loading", 
     desc: <>
-      <p>通常時とロード時とで外観が変化するボタン</p>
+      <p>通常時とロード中とで外観が変化するボタン</p>
       <p>ロード中はクリックできなくなる</p>
     </>, 
     comp: <LoadingButtonSample />,
