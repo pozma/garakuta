@@ -1,5 +1,12 @@
 @use "../palette";
 
+.simple input { // 箱
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
 .labeled label > { // 全体を label でラップしてる
   h1 { // 入力項目名
     font-weight: normal;
@@ -13,7 +20,8 @@
   input { // 箱
     box-sizing: border-box;
     width: 100%;
-    padding: 0.6rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -34,6 +42,7 @@
     border: none;
     border-bottom: solid palette.$foreground 2px;
     margin-bottom: 0.2rem;
+    font-size: 0.9rem;
     &:focus {
       outline: none; // 枠線非表示
     }

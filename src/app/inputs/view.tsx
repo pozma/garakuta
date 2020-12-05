@@ -5,13 +5,29 @@ import { Samples } from "../sample";
 import { Input } from "./../../../lib/index";
 import style from "./view.scss";
 
+
 // 単純な１行入力
+const SimpleTextSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Text.Simple 
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.simple} // 追加のスタイル指定（option）
+    />
+  );
+};
+
+// ラベル付き
 const LabeledTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
     <Input.Text.Labeled 
-      label="しんぷるいんぷっと" // JSXも可
+      label="らべる" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
@@ -47,6 +63,22 @@ const PlaceholderTextSample: React.FC<{}> = () => {
 
 
 // パスワード入力の箱
+const SimplePasswordSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Password.Simple 
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.simple} // 追加のスタイル指定（option）
+    />
+  );
+};
+
+
+// ラベル付き
 const LabeledPasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
@@ -92,6 +124,28 @@ const PlaceholderPasswordSample: React.FC<{}> = () => {
 // サンプルリスト
 const inputList = [
   {
+    title: "Input.Text.Simple", 
+    desc: <p>単純な１行入力の箱</p>, 
+    comp: <SimpleTextSample />,
+    code:
+    // {{{
+      String.raw`const SimpleTextSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Text.Simple 
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.simple} // 追加のスタイル指定（option）
+    />
+  );
+};`, //` シンタックスのバグ避け
+    // }}}
+  },
+
+  {
     title: "Input.Text.Labeled", 
     desc: <p>ラベル付きの箱</p>, 
     comp: <LabeledTextSample />,
@@ -102,7 +156,7 @@ const inputList = [
   const [value, setValue] = useState("");
   return(
     <Input.Text.Labeled 
-      label="しんぷるいんぷっと" // JSXも可
+      label="らべる" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
@@ -138,6 +192,28 @@ const inputList = [
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
+    />
+  );
+};`, //` シンタックスのバグ避け
+    // }}}
+  },
+
+  {
+    title: "Input.Password.Simple", 
+    desc: <p>パスワード入力用の箱</p>,
+    comp: <SimplePasswordSample />,
+    code:
+    // {{{
+      String.raw`const SimplePasswordSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Password.Simple 
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onFocus={e => {}} // フォーカス時の挙動（option）
+      onBlur={e => {}} // アンフォーカス時の挙動（option）
+      className={style.simple} // 追加のスタイル指定（option）
     />
   );
 };`, //` シンタックスのバグ避け
