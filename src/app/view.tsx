@@ -52,7 +52,7 @@ export const App: React.FC<{}> = () => {
         </ul>
       </nav>
 
-      <article>
+      <main>
         <Switch>
           <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
@@ -60,7 +60,7 @@ export const App: React.FC<{}> = () => {
           <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_LOADERS}><Loaders /></Route>
         </Switch>
-      </article>
+      </main>
 
       <footer>
         <p><small>&copy; 2020 わはー</small></p>

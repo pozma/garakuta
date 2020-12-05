@@ -3,13 +3,13 @@
 
 .app { // 画面全体
   display: grid;
-  min-height: 100vh; // 画面全体を使う（高さ）
-  grid-template-columns: 270px 1fr; // 横 1fr は残りってこと？
+  height: 100vh; // 画面全体を使う（高さ）
+  grid-template-columns: 250px 1fr; // 横 1fr は残りってこと？
   grid-template-rows: 4.0rem 1fr 4rem; // 縦
   grid-template-areas:
     "header   header  "
-    "aside    article "
-    "footer   footer  ";
+    "nav      main    "
+    "footer   main    ";
 }
 
 header { // ヘッダー
@@ -36,26 +36,33 @@ header { // ヘッダー
 }
 
 nav { // ナビゲーション（実際のコンテンツ）
-padding: 2rem;
+  grid-area: nav;
+  padding: 2.5rem;
+  background: palette.$nav_bg;
+  color: palette.$nav_fg;
+
   ul { // 箇条書き
-    border: solid 2px black;
-    padding: 2rem;
     li { // 各項目
       list-style: none;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
 }
 
-article { // コンテンツ
+main { // コンテンツ
+  grid-area: main;
   padding: 1rem 2rem;
-  padding-left: 0;
+  overflow-y: auto; // この中でスクロール
 }
 
 footer {
   grid-area: footer;
-  background: palette.$header_bg;
-  color: palette.$header_fg;
+  background: palette.$footer_bg;
+  color: palette.$footer_fg;
   position: relative;
   display: flex;
   justify-content: center;
