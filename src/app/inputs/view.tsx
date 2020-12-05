@@ -10,7 +10,7 @@ const SimpleInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Simple 
+    <Input.Text.Simple 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
       onChange={(e) => setValue(e.target.value)}
@@ -25,9 +25,9 @@ const PlaceholderInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Placeholder 
+    <Input.Text.Placeholder 
       label="プレースホルダー付き入力" // JSXも可
-      text="プレースホルダーのテキスト" // これはstringのみ
+      placeholder="プレースホルダーのテキスト" // これはstringのみ
       value={value}
       onChange={(e) => setValue(e.target.value)}
       className={style.placeholder} // 追加のスタイル指定（オプション）
@@ -39,14 +39,14 @@ const PlaceholderInputSample: React.FC<{}> = () => {
 // サンプルリスト
 const inputList = [
   {
-    title: "Input.Simple", 
+    title: "Input.Text.Simple", 
     desc: <p>１行入力用の単純な箱</p>, 
     comp: <SimpleInputSample />,
     code: String.raw`const SimpleInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Simple 
+    <Input.Text.Simple 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
       onChange={(e) => setValue(e.target.value)}
@@ -57,16 +57,16 @@ const inputList = [
   },
 
   {
-    title: "Input.Placeholder", 
+    title: "Input.Text.Placeholder", 
     desc: <p>プレースホルダーになんか表示するタイプの１行入力</p>, 
     comp: <PlaceholderInputSample />,
     code: String.raw`const PlaceholderInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Placeholder 
+    <Input.Text.Placeholder 
       label="プレースホルダー付き入力" // JSXも可
-      text="プレースホルダーのテキスト" // これはstringのみ
+      placeholder="プレースホルダーのテキスト" // これはstringのみ
       value={value}
       onChange={(e) => setValue(e.target.value)}
       className={style.placeholder} // 追加のスタイル指定（オプション）

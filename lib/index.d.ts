@@ -33,14 +33,16 @@ export declare const Button: {
 
 export declare const Input: {
 
-  Simple: React.FCXI<{
-    label: label;
-  }>;
+  Text: {
+    Simple: React.FCXI<{
+      label: label;
+    }>;
 
-  Placeholder: React.FCXI<{
-    label: label;
-    text: string;
-  }>;
+    Placeholder: React.FCXI<{
+      label: label;
+      placeholder: string;
+    }>;
+  };
 
 }
 

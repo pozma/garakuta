@@ -27,7 +27,7 @@ export const Simple: React.FCXI<{
 // プレースホルダーにラベルを表示
 export const Placeholder: React.FCXI<{
   label: label; // 入力項目名
-  text: string;
+  placeholder: string;
 }> = (props) => {
   return(
     <div className={`${style.placeholder} ${props.className}`}>
@@ -35,7 +35,7 @@ export const Placeholder: React.FCXI<{
         <h1>{props.label}</h1>
         <input 
           type="text" 
-          placeholder={props.text}
+          placeholder={props.placeholder}
           value={props.value} 
           onChange={props.onChange}
         />

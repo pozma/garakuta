@@ -1,6 +1,6 @@
 @use "../colorset";
 
-.simple label { // 全体を label でラップしてる
+.simple label > { // 全体を label でラップしてる
   h1 { // 入力項目名
     font-weight: normal;
     font-size: 0.9rem;
@@ -16,7 +16,7 @@
   }
 }
 
-.placeholder label { // 全体を label でラップしてる
+.placeholder label > { // 全体を label でラップしてる
   h1 { // 入力項目名
     font-weight: normal;
     font-size: 0.8rem;
