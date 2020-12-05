@@ -48,7 +48,7 @@ export const Placeholder: React.FCXI<{
         <h1>{props.label}</h1>
         <span>
           <input 
-            type="password" 
+            type={mask ? "password" : "text"} // 表示/非表示切替
             placeholder={props.placeholder}
             value={props.value} 
             onChange={props.onChange}
