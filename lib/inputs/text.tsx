@@ -24,3 +24,23 @@ export const Simple: React.FCXI<{
   );
 };
 
+// プレースホルダーにラベルを表示
+export const Placeholder: React.FCXI<{
+  label: label; // 入力項目名
+  text: string;
+}> = (props) => {
+  return(
+    <div className={`${style.placeholder} ${props.className}`}>
+      <label>
+        <h1>{props.label}</h1>
+        <input 
+          type="text" 
+          placeholder={props.text}
+          value={props.value} 
+          onChange={props.onChange}
+        />
+      </label>
+    </div>
+  );
+};
+

@@ -37,5 +37,10 @@ export declare const Input: {
     label: label;
   }>;
 
+  Placeholder: React.FCXI<{
+    label: label;
+    text: string;
+  }>;
+
 }
 

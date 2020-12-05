@@ -5,19 +5,32 @@ import { Samples } from "../sample";
 import { Input } from "./../../../lib/index";
 import style from "./view.scss";
 
-const delay = 4; // 状態の切替時間（sec）
-
 // 単純な１行入力
 const SimpleInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
-
   return(
     <Input.Simple 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
       onChange={(e) => setValue(e.target.value)}
       className={style.simple} // 追加のスタイル指定（オプション）
+    />
+  );
+};
+
+
+// プレースホルダーにラベルを表示するタイプ
+const PlaceholderInputSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Placeholder 
+      label="プレースホルダー付き入力" // JSXも可
+      text="プレースホルダーのテキスト" // これはstringのみ
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      className={style.placeholder} // 追加のスタイル指定（オプション）
     />
   );
 };
@@ -32,13 +45,31 @@ const inputList = [
     code: String.raw`const SimpleInputSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
-
   return(
     <Input.Simple 
       label="しんぷるいんぷっと" // JSXも可
       value={value}
       onChange={(e) => setValue(e.target.value)}
       className={style.simple} // 追加のスタイル指定（オプション）
+    />
+  );
+};`, //` シンタックスのバグ避け
+  },
+
+  {
+    title: "Input.Placeholder", 
+    desc: <p>プレースホルダーになんか表示するタイプの１行入力</p>, 
+    comp: <PlaceholderInputSample />,
+    code: String.raw`const PlaceholderInputSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Placeholder 
+      label="プレースホルダー付き入力" // JSXも可
+      text="プレースホルダーのテキスト" // これはstringのみ
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      className={style.placeholder} // 追加のスタイル指定（オプション）
     />
   );
 };`, //` シンタックスのバグ避け
