@@ -1,11 +1,11 @@
-@use "../colorset";
+@use "../palette";
 
 .simple label > { // 全体を label でラップしてる
   h1 { // 入力項目名
     font-weight: normal;
     font-size: 0.9rem;
-    color: colorset.$black;
-    background: colorset.$white;
+    color: palette.$foreground;
+    background: palette.$background;
     margin-left: 0.2rem;
     margin-bottom: 0.8rem;
   }
@@ -20,17 +20,39 @@
   h1 { // 入力項目名
     font-weight: normal;
     font-size: 0.8rem;
-    color: colorset.$black;
-    background: colorset.$white;
+    color: palette.$foreground;
+    background: palette.$background;
     margin-left: 0.2rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
 
   input { // 箱
     width: 100%;
     padding: 0.6rem 1rem;
     border: none;
-    border-bottom: solid colorset.$black 2px;
+    border-bottom: solid palette.$foreground 2px;
+    &:focus {
+      outline: none; // 枠線非表示
+    }
+  }
+}
+
+
+.validation label > { // 全体を label でラップしてる
+  h1 { // 入力項目名
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: palette.$foreground;
+    background: palette.$background;
+    margin-left: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input { // 箱
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-bottom: solid palette.$foreground 2px;
     &:focus {
       outline: none; // 枠線非表示
     }

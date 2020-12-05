@@ -36,6 +36,22 @@ const PlaceholderInputSample: React.FC<{}> = () => {
 };
 
 
+// 入力値チェック付き
+const ValidationInputSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+  return(
+    <Input.Text.Validation 
+      label="Username" // JSXも可
+      placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      className={style.validation} // 追加のスタイル指定（オプション）
+    />
+  );
+};
+
+
 // サンプルリスト
 const inputList = [
   {
@@ -73,6 +89,14 @@ const inputList = [
     />
   );
 };`, //` シンタックスのバグ避け
+  },
+
+  {
+    title: "Input.Text.Validation", 
+    desc: <p>入力値チェック付きの１行入力</p>,
+    comp: <ValidationInputSample />,
+    code: String.raw`
+`, //` シンタックスのバグ避け
   },
 
 ];

@@ -1,0 +1,5 @@
+@use "./colorset";
+
+$foreground: colorset.$black;
+$background: colorset.$white;
+$alert: colorset.$red;

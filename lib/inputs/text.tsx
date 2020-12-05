@@ -44,3 +44,23 @@ export const Placeholder: React.FCXI<{
   );
 };
 
+// 入力値チェック付き
+export const Validation: React.FCXI<{
+  label: label; // 入力項目名
+  placeholder: string;
+}> = (props) => {
+  return(
+    <div className={`${style.validation} ${props.className}`}>
+      <label>
+        <h1>{props.label}</h1>
+        <input 
+          type="text" 
+          placeholder={props.placeholder}
+          value={props.value} 
+          onChange={props.onChange}
+        />
+      </label>
+    </div>
+  );
+};
+

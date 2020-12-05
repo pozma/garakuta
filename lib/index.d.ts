@@ -42,6 +42,11 @@ export declare const Input: {
       label: label;
       placeholder: string;
     }>;
+
+    Validation: React.FCXI<{
+      label: label;
+      placeholder: string;
+    }>;
   };
 
 }
