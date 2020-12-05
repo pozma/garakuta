@@ -8,18 +8,19 @@ import style from "./view.scss";
 const delay = 4; // 状態の切替時間（sec）
 
 // ただのボタン
-const Simple: React.FC<{}> = () => {
+const SimpleButtonSample: React.FC<{}> = () => {
   return(
     <Button.Simple 
-      label="しんぷるぼたん"
-      onClick={() => {console.log("Button.Simpleがクリックされた")}}
+      label="しんぷるぼたん" // JSXも可
+      onClick={() => {console.log("Button.Simple がクリックされた")}}
+      className={style.simpleButtonSample} // 追加のスタイル指定（オプション）
     />
   );
 };
 
 
 // 「ロード中」をもつボタン
-const Loading: React.FC<{}> = () => {
+const LoadingButtonSample: React.FC<{}> = () => {
 
   const [isLoading, setIsLoading] = useState(false); // true ならロード中
   const onClick = () => {
@@ -32,9 +33,11 @@ const Loading: React.FC<{}> = () => {
 
   return(
     <Button.Loading 
-      labels={["通常", "ロード中"]}
+      labels={["通常時", "ロード中..."]} // JSXも可
       isLoading={isLoading}
       onClick={onClick}
+      className={style.loadingButtonSample} // 追加のスタイル指定（オプション）
+      altClassName={style.loadingButtonSampleAlt} // ロード時の追加スタイル（オプション）
     />
   );
 };
@@ -45,12 +48,13 @@ const buttonList = [
   {
     title: "Button.Simple", 
     desc: <p>何の変哲もないただのボタン</p>, 
-    comp: <Simple />,
-    code: String.raw`const Simple: React.FC<{}> = () => {
+    comp: <SimpleButtonSample />,
+    code: String.raw`const SimpleButtonSample: React.FC<{}> = () => {
   return(
     <Button.Simple 
-      label="しんぷるぼたん"
-      onClick={() => {console.log("Button.Simpleがクリックされた")}}
+      label="しんぷるぼたん" // JSXも可
+      onClick={() => {console.log("Button.Simple がクリックされた")}}
+      className={style.simpleButtonSample} // 追加のスタイル指定（オプション）
     />
   );
 };`, //` シンタックスのバグ避け
@@ -62,12 +66,12 @@ const buttonList = [
       <p>通常時とロード時とで外観が変化するボタン</p>
       <p>ロード中はクリックできなくなる</p>
     </>, 
-    comp: <Loading />,
-    code: String.raw`const Loading: React.FC<{}> = () => {
+    comp: <LoadingButtonSample />,
+    code: String.raw`const LoadingButtonSample: React.FC<{}> = () => {
 
   const [isLoading, setIsLoading] = useState(false); // true ならロード中
   const onClick = () => {
-    console.log("Button.Loadingがクリックされた")
+    console.log("Button.Loading がクリックされた")
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -76,9 +80,11 @@ const buttonList = [
 
   return(
     <Button.Loading 
-      labels={["通常", "ロード中"]}
+      labels={["通常時", "ロード中..."]} // JSXも可
       isLoading={isLoading}
       onClick={onClick}
+      className={style.loadingButtonSample} // 追加のスタイル指定（オプション）
+      altClassName={style.loadingButtonSampleAlt} // ロード時の追加スタイル（オプション）
     />
   );
 };`, //` シンタックスのバグ避け
