@@ -92,15 +92,20 @@ const buttonList = [
 ];
 
 
+// 表示
 export const Buttons: React.FC<{}> = () => {
 
+  const imp = String.raw`import { Button } from "garakuta";`;
   return(
     <div className={style.wrapper}>
-      <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js" />
       <h1>ボタン</h1>
       <hr />
+      <div className={style.desc}>
+        <pre className="prettyprint lang-js linenums">{imp}</pre>
+      </div>
       <Samples sampleList={buttonList} />
     </div>
   );
+
 };
 

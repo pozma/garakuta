@@ -1,5 +1,24 @@
 @use "./palette";
 
+@mixin wrapper() { // 共通のページスタイル
+  & > h1 { // 見出し
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-top: 0.4rem;
+    padding: 0 1rem;
+  }
+
+  & > .desc {
+    pre ol li { // スニペット部分
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+    }
+  }
+
+  @content;
+};
+
 .item { // 各項目
   padding: 1rem;
   border-top: solid palette.$dec_black 2px;
@@ -71,8 +90,8 @@
         
         & > li { // スニペットの各行
           list-style: none; // しかし li の番号は使わない（1. とかいうのになるので）
-          font-size: 0.85rem;
-          line-height: 1.2rem;
+          font-size: 0.9rem;
+          line-height: 1.3rem;
           position: relative;
 
           &::before { // 行番号

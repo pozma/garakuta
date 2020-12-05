@@ -2,13 +2,7 @@
 @use "./../sample";
 
 .wrapper {
-  h1 { // 見出し
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-top: 0.4rem;
-    padding: 0 1rem;
-  }
-
+  @include sample.wrapper();
 }
 
 .simpleButtonSample {
