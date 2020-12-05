@@ -13,7 +13,7 @@ const SimpleButtonSample: React.FC<{}> = () => {
     <Button.Simple 
       label="しんぷるぼたん" // JSXも可
       onClick={() => {console.log("Button.Simple がクリックされた")}}
-      className={style.simpleButtonSample} // 追加のスタイル指定（オプション）
+      className={style.simple} // 追加のスタイル指定（オプション）
     />
   );
 };
@@ -36,8 +36,8 @@ const LoadingButtonSample: React.FC<{}> = () => {
       labels={["通常時", "ロード中..."]} // JSXも可
       isLoading={isLoading}
       onClick={onClick}
-      className={style.loadingButtonSample} // 追加のスタイル指定（オプション）
-      altClassName={style.loadingButtonSampleAlt} // ロード時の追加スタイル（オプション）
+      className={style.loading} // 追加のスタイル指定（option）
+      altClassName={style.loadingAlt} // ロード中での追加スタイル（option）
     />
   );
 };
@@ -54,7 +54,7 @@ const buttonList = [
     <Button.Simple 
       label="しんぷるぼたん" // JSXも可
       onClick={() => {console.log("Button.Simple がクリックされた")}}
-      className={style.simpleButtonSample} // 追加のスタイル指定（オプション）
+      className={style.simple} // 追加のスタイル指定（option）
     />
   );
 };`, //` シンタックスのバグ避け
@@ -83,8 +83,8 @@ const buttonList = [
       labels={["通常時", "ロード中..."]} // JSXも可
       isLoading={isLoading}
       onClick={onClick}
-      className={style.loadingButtonSample} // 追加のスタイル指定（オプション）
-      altClassName={style.loadingButtonSampleAlt} // ロード時の追加スタイル（オプション）
+      className={style.loading} // 追加のスタイル指定（option）
+      altClassName={style.loadingAlt} // ロード中での追加スタイル（option）
     />
   );
 };`, //` シンタックスのバグ避け
