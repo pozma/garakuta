@@ -1,5 +1,7 @@
 import * as React from "react";
+import { useEffect } from "react";
 import style from "./sample.scss";
+
 
 // サンプル一覧の表示用
 export const Samples: React.FC<{
@@ -10,6 +12,13 @@ export const Samples: React.FC<{
     code: string;
   }[];
 }> = (props) => {
+
+  useEffect(() => { // レンダーのときに <script> タグを読み込んでほしい
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert";
+    script.async = true;
+    document.body.appendChild(script); // <body> にタグを追加
+  }, []);
 
   return(
     <>
