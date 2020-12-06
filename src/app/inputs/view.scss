@@ -5,22 +5,28 @@
   @include sample.wrapper();
 }
 
-.simple {
+.box {
   width: 18rem;
 }
 
-.labeled {
+.underline {
   width: 18rem;
 }
 
-.placeholder {
-  width: 18rem;
-}
+p {
 
-.alert { // アラートメッセージ
-  font-size: 0.75rem;
-  line-height: 1.4rem;
-  color: palette.$alert_fg;
-  text-align: right;
+  &.label { // 各欄のラベル
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  &.alert { // アラートメッセージ
+    font-size: 0.75rem;
+    line-height: 1.4rem;
+    color: palette.$alert_fg;
+    text-align: right;
+  }
+
 }
 

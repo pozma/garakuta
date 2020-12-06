@@ -29,27 +29,13 @@ export declare const Button: {
 export declare const Input: {
 
   Text: {
-    Simple: React.FCXI<{}>;
-
-    Labeled: React.FCXI<{
-      label: label;
-    }>;
-
-    Placeholder: React.FCXI<{
-      label: label;
-    }>;
+    Box: React.FCXI<{}>;
+    Underline: React.FCXI<{}>;
   };
 
   Password: {
-    Simple: React.FCXI<{}>;
-
-    Labeled: React.FCXI<{
-      label: label;
-    }>;
-
-    Placeholder: React.FCXI<{
-      label: label;
-    }>;
+    Box: React.FCXI<{}>;
+    Underline: React.FCXI<{}>;
   };
 
 }

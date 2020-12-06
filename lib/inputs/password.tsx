@@ -5,14 +5,12 @@ import style from "./password.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-type label = string | JSX.Element;
-
-// マスク表示切替機能付きのパスワード入力欄
-export const Simple: React.FCXI<{}> = (props) => {
+// 箱タイプ
+export const Box: React.FCXI<{}> = (props) => {
   const {className, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.simple} ${className}`}>
+    <div className={`${style.box} ${className}`}>
       <input 
         {...other}
         type={mask ? "password" : "text"} // 表示/非表示切替
@@ -26,50 +24,21 @@ export const Simple: React.FCXI<{}> = (props) => {
   );
 };
 
-// ラベル付きパスワード入力欄
-export const Labeled: React.FCXI<{ label: label; }> = (props) => {
-  const {className, label, ...other} = props;
+// 下線タイプ
+export const Underline: React.FCXI<{}> = (props) => {
+  const {className, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.labeled} ${className}`}>
-      <label>
-        <h1>{label}</h1>
-        <span>
-          <input 
-            {...other}
-            type={mask ? "password" : "text"} // 表示/非表示切替
-          />
-          <FontAwesomeIcon // 表示切替アイコン
-            className={style.toggle} 
-            onClick={() => {setMask(!mask);}}
-            icon={mask ? faEye : faEyeSlash} 
-          />
-        </span>
-      </label>
-    </div>
-  );
-};
-
-// プレースホルダーにラベルを表示
-export const Placeholder: React.FCXI<{ label: label; }> = (props) => {
-  const {className, label, ...other} = props;
-  const [mask, setMask] = useState(true); // trueならマスキング
-  return(
-    <div className={`${style.placeholder} ${className}`}>
-      <label>
-        <h1>{label}</h1>
-        <span>
-          <input 
-            {...other}
-            type={mask ? "password" : "text"} // 表示/非表示切替
-          />
-          <FontAwesomeIcon // 表示切替アイコン
-            className={style.toggle} 
-            onClick={() => {setMask(!mask);}}
-            icon={mask ? faEye : faEyeSlash} 
-          />
-        </span>
-      </label>
+    <div className={`${style.underline} ${className}`}>
+      <input 
+        {...other}
+        type={mask ? "password" : "text"} // 表示/非表示切替
+      />
+      <FontAwesomeIcon // 表示切替アイコン
+        className={style.toggle} 
+        onClick={() => {setMask(!mask);}}
+        icon={mask ? faEye : faEyeSlash} 
+      />
     </div>
   );
 };

@@ -6,128 +6,104 @@ import { Input } from "./../../../lib/index";
 import style from "./view.scss";
 
 
-// 単純な１行入力
-const SimpleTextSample: React.FC<{}> = () => {
+const BoxTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
+
   return(
-    <Input.Text.Simple 
+    <Input.Text.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.simple} // 追加のスタイル指定（option）
-    />
-  );
-};
-
-// ラベル付き
-const LabeledTextSample: React.FC<{}> = () => {
-
-  const [value, setValue] = useState("");
-  return(
-    <Input.Text.Labeled 
-      label="らべる" // JSXも可
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      className={style.labeled} // 追加のスタイル指定（option）
+      className={style.box} // 追加のスタイル指定
     />
   );
 };
 
 
-// プレースホルダーにラベルを表示するタイプ
-const PlaceholderTextSample: React.FC<{}> = () => {
+const UnderlineTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   const [alert, setAlert] = useState("");
   const inputAlert = "使用できない文字が含まれています！";
+
   useEffect(() => { // 入力値のチェック
     setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? inputAlert : "");
   }, [value]);
-  return(<>
-    <Input.Text.Placeholder 
-      label="USERNAME" // JSXも可
-      placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      className={style.placeholder} // 追加のスタイル指定（option）
-      type="password"
-    />
-    <div className={style.alert}>{alert}</div>
-  </>);
+
+  return(
+    <label>
+      <p className={style.label}>{"Username"}</p>
+      <Input.Text.Underline 
+        placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        className={style.underline} // 追加のスタイル指定
+      />
+      <p className={style.alert}>{alert}</p>
+    </label>
+  );
 };
 
 
-// パスワード入力の箱
-const SimplePasswordSample: React.FC<{}> = () => {
+const BoxPasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
+
   return(
-    <Input.Password.Simple 
+    <Input.Password.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.box} // 追加のスタイル指定
     />
   );
 };
 
 
-// ラベル付き
-const LabeledPasswordSample: React.FC<{}> = () => {
-
-  const [value, setValue] = useState("");
-  return(
-    <Input.Password.Labeled 
-      label="ぱすわーど" // JSXも可
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      className={style.labeled} // 追加のスタイル指定（option）
-    />
-  );
-};
-
-
-// プレースホルダーにラベルを表示するタイプ
-const PlaceholderPasswordSample: React.FC<{}> = () => {
+const UnderlinePasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   const [alert, setAlert] = useState("");
   const inputAlert = "パスワードが短すぎます！";
+
   const validate = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (value.length > 0 && value.length < 5) {
       setAlert(inputAlert);
     };
   };
-  return(<>
-    <Input.Password.Placeholder 
-      label="PASSWORD" // JSXも可
-      placeholder="5文字以上必要です" // これはstringのみ
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      onFocus={e => setAlert("")} // フォーカス時
-      onBlur={validate} // アンフォーカス時
-      className={style.placeholder} // 追加のスタイル指定（option）
-    />
-    <div className={style.alert}>{alert}</div>
-  </>);
+
+  return(
+    <label>
+      <p className={style.label}>{"Password"}</p>
+      <Input.Password.Underline 
+        placeholder="5文字以上必要です" // これはstringのみ
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        onFocus={e => setAlert("")} // フォーカス時
+        onBlur={validate} // アンフォーカス時
+        className={style.underline} // 追加のスタイル指定
+      />
+      <p className={style.alert}>{alert}</p>
+    </label>
+  );
 };
 
 
 // サンプルリスト
 const inputList = [
   {
-    title: "Input.Text.Simple", 
-    desc: <p>単純な１行入力の箱</p>, 
-    comp: <SimpleTextSample />,
+    title: "Input.Text.Box", 
+    desc: <p>箱タイプ</p>,
+    comp: <BoxTextSample />,
     code:
     // {{{
-      String.raw`const SimpleTextSample: React.FC<{}> = () => {
+      String.raw`const BoxTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Text.Simple 
+    <Input.Text.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.box} // 追加のスタイル指定
     />
   );
 };`, //` シンタックスのバグ避け
@@ -135,33 +111,12 @@ const inputList = [
   },
 
   {
-    title: "Input.Text.Labeled", 
-    desc: <p>ラベル付きの箱</p>, 
-    comp: <LabeledTextSample />,
+    title: "Input.Text.Underline", 
+    desc: <p>下線タイプ</p>,
+    comp: <UnderlineTextSample />,
     code:
     // {{{
-      String.raw`const LabeledTextSample: React.FC<{}> = () => {
-
-  const [value, setValue] = useState("");
-  return(
-    <Input.Text.Labeled 
-      label="らべる" // JSXも可
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      className={style.labeled} // 追加のスタイル指定（option）
-    />
-  );
-};`, //` シンタックスのバグ避け
-    // }}}
-  },
-
-  {
-    title: "Input.Text.Placeholder", 
-    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>（アラートは別売り）</p></>,
-    comp: <PlaceholderTextSample />,
-    code:
-    // {{{
-      String.raw`const PlaceholderTextSample: React.FC<{}> = () => {
+      String.raw`const UnderlineTextSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   const [alert, setAlert] = useState("");
@@ -170,12 +125,11 @@ const inputList = [
     setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? inputAlert : "");
   }, [value]);
   return(<>
-    <Input.Text.Placeholder 
-      label="USERNAME" // JSXも可
+    <Input.Text.Underline 
       placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.placeholder} // 追加のスタイル指定（option）
+      className={style.underline} // 追加のスタイル指定
     />
     <div className={style.alert}>{alert}</div>
   </>);
@@ -184,19 +138,19 @@ const inputList = [
   },
 
   {
-    title: "Input.Password.Simple", 
-    desc: <p>パスワード入力用の箱</p>,
-    comp: <SimplePasswordSample />,
+    title: "Input.Password.Box", 
+    desc: <p>箱タイプ</p>,
+    comp: <BoxPasswordSample />,
     code:
     // {{{
-      String.raw`const SimplePasswordSample: React.FC<{}> = () => {
+      String.raw`const BoxPasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   return(
-    <Input.Password.Simple 
+    <Input.Password.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.simple} // 追加のスタイル指定（option）
+      className={style.box} // 追加のスタイル指定
     />
   );
 };`, //` シンタックスのバグ避け
@@ -204,33 +158,12 @@ const inputList = [
   },
 
   {
-    title: "Input.Password.Labeled", 
-    desc: <p>ラベル付きの箱</p>,
-    comp: <LabeledPasswordSample />,
+    title: "Input.Password.Underline", 
+    desc: <p>下線タイプ</p>,
+    comp: <UnderlinePasswordSample />,
     code:
     // {{{
-      String.raw`const LabeledPasswordSample: React.FC<{}> = () => {
-
-  const [value, setValue] = useState("");
-  return(
-    <Input.Password.Labeled 
-      label="ぱすわーど" // JSXも可
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      className={style.labeled} // 追加のスタイル指定（option）
-    />
-  );
-};`, //` シンタックスのバグ避け
-    // }}}
-  },
-
-  {
-    title: "Input.Password.Placeholder", 
-    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>（アラートは別売り）</p></>,
-    comp: <PlaceholderPasswordSample />,
-    code:
-    // {{{
-      String.raw`const PlaceholderPasswordSample: React.FC<{}> = () => {
+      String.raw`const UnderlinePasswordSample: React.FC<{}> = () => {
 
   const [value, setValue] = useState("");
   const [alert, setAlert] = useState("");
@@ -241,14 +174,13 @@ const inputList = [
     };
   };
   return(<>
-    <Input.Password.Placeholder 
-      label="PASSWORD" // JSXも可
+    <Input.Password.Underline 
       placeholder="5文字以上必要です" // これはstringのみ
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => setAlert("")} // フォーカス時
       onBlur={validate} // アンフォーカス時
-      className={style.placeholder} // 追加のスタイル指定（option）
+      className={style.underline} // 追加のスタイル指定
     />
     <div className={style.alert}>{alert}</div>
   </>);
