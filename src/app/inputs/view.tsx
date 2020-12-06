@@ -47,18 +47,18 @@ const PlaceholderTextSample: React.FC<{}> = () => {
   useEffect(() => { // 入力値のチェック
     setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? inputAlert : "");
   }, [value]);
-  return(
+  return(<>
     <Input.Text.Placeholder 
       label="USERNAME" // JSXも可
       placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
-      alert={alert} // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
     />
-  );
+    <div className={style.alert}>{alert}</div>
+  </>);
 };
 
 
@@ -106,18 +106,18 @@ const PlaceholderPasswordSample: React.FC<{}> = () => {
       setAlert(inputAlert);
     };
   };
-  return(
+  return(<>
     <Input.Password.Placeholder 
       label="PASSWORD" // JSXも可
       placeholder="5文字以上必要です" // これはstringのみ
-      alert={alert} // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => setAlert("")} // フォーカス時の挙動（option）
       onBlur={validate} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
     />
-  );
+    <div className={style.alert}>{alert}</div>
+  </>);
 };
 
 
@@ -170,7 +170,7 @@ const inputList = [
 
   {
     title: "Input.Text.Placeholder", 
-    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>メッセージ（アラート）表示欄付き</p></>,
+    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>（アラートは別売り）</p></>,
     comp: <PlaceholderTextSample />,
     code:
     // {{{
@@ -182,18 +182,18 @@ const inputList = [
   useEffect(() => { // 入力値のチェック
     setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? inputAlert : "");
   }, [value]);
-  return(
+  return(<>
     <Input.Text.Placeholder 
       label="USERNAME" // JSXも可
       placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
-      alert={alert} // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => {}} // フォーカス時の挙動（option）
       onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
     />
-  );
+    <div className={style.alert}>{alert}</div>
+  </>);
 };`, //` シンタックスのバグ避け
     // }}}
   },
@@ -245,7 +245,7 @@ const inputList = [
 
   {
     title: "Input.Password.Placeholder", 
-    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>メッセージ（アラート）表示欄付き</p></>,
+    desc: <><p>プレースホルダーになんか表示するタイプ</p><p>（アラートは別売り）</p></>,
     comp: <PlaceholderPasswordSample />,
     code:
     // {{{
@@ -259,18 +259,18 @@ const inputList = [
       setAlert(inputAlert);
     };
   };
-  return(
+  return(<>
     <Input.Password.Placeholder 
       label="PASSWORD" // JSXも可
       placeholder="5文字以上必要です" // これはstringのみ
-      alert={alert} // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
       onFocus={e => setAlert("")} // フォーカス時の挙動（option）
       onBlur={validate} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
     />
-  );
+    <div className={style.alert}>{alert}</div>
+  </>);
 };`, //` シンタックスのバグ避け
     // }}}
   },

@@ -60,7 +60,6 @@ export const Labeled: React.FCXI<{
 export const Placeholder: React.FCXI<{
   label: label; // 入力項目名
   placeholder: string;
-  alert: label;
 }> = (props) => {
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
@@ -82,7 +81,6 @@ export const Placeholder: React.FCXI<{
             icon={mask ? faEye : faEyeSlash} 
           />
         </span>
-        <p>{props.alert}</p>
       </label>
     </div>
   );

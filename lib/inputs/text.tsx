@@ -43,7 +43,6 @@ export const Labeled: React.FCXI<{
 export const Placeholder: React.FCXI<{
   label: label; // 入力項目名
   placeholder: string;
-  alert: label;
 }> = (props) => {
   return(
     <div className={`${style.placeholder} ${props.className}`}>
@@ -57,7 +56,6 @@ export const Placeholder: React.FCXI<{
           onFocus={props.onFocus}
           onBlur={props.onBlur}
         />
-        <p>{props.alert}</p>
       </label>
     </div>
   );

@@ -47,13 +47,6 @@
       outline: none; // 枠線非表示
     }
   }
-
-  p { // notification
-    text-align: right;
-    color: palette.$alert;
-    font-size: 0.75rem;
-    line-height: 1.4rem;
-  }
 }
 
 @mixin text($name_fg:palette.$black, $desc_fg:palette.$light) { // 一行入力のとこ

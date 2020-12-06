@@ -17,3 +17,10 @@
   width: 18rem;
 }
 
+.alert { // アラートメッセージ
+  font-size: 0.75rem;
+  line-height: 1.4rem;
+  color: palette.$alert_fg;
+  text-align: right;
+}
+

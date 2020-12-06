@@ -45,7 +45,6 @@ export declare const Input: {
     Placeholder: React.FCXI<{
       label: label;
       placeholder: string;
-      alert: label;
     }>;
   };
 
@@ -59,7 +58,6 @@ export declare const Input: {
     Placeholder: React.FCXI<{
       label: label;
       placeholder: string;
-      alert: label;
     }>;
   };
 
