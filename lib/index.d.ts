@@ -13,12 +13,8 @@ type label = string | JSX.Element;
 
 export declare const Button: {
 
-  Simple: React.FCXB<{
-    label: label;
-  }>;
-
+  Simple: React.FCXB<{}>;
   Loading: React.FCXB<{
-    labels: [label, label];
     isLoading: boolean;
     altClassName?: string;
   }>;

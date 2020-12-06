@@ -9,12 +9,14 @@ const delay = 4; // 状態の切替時間（sec）
 
 // ただのボタン
 const SimpleButtonSample: React.FC<{}> = () => {
+
   return(
     <Button.Simple 
-      label="しんぷるぼたん" // JSXも可
       onClick={() => {console.log("Button.Simple がクリックされた")}}
       className={style.simple} // 追加のスタイル指定（オプション）
-    />
+    >
+      <p>わはー</p>
+    </Button.Simple>
   );
 };
 
@@ -33,12 +35,13 @@ const LoadingButtonSample: React.FC<{}> = () => {
 
   return(
     <Button.Loading 
-      labels={["通常時", "ロード中..."]} // JSXも可
       isLoading={isLoading}
       onClick={onClick}
       className={style.loading} // 追加のスタイル指定（option）
       altClassName={style.loadingAlt} // ロード中での追加スタイル（option）
-    />
+    >
+      {!isLoading ? <p>通常時</p> : <p>ロード中...</p>}
+    </Button.Loading>
   );
 };
 
@@ -49,15 +52,19 @@ const buttonList = [
     title: "Button.Simple", 
     desc: <p>何の変哲もないただのボタン</p>, 
     comp: <SimpleButtonSample />,
-    code: String.raw`const SimpleButtonSample: React.FC<{}> = () => {
+    code: // {{{
+      String.raw`const SimpleButtonSample: React.FC<{}> = () => {
+
   return(
     <Button.Simple 
-      label="しんぷるぼたん" // JSXも可
       onClick={() => {console.log("Button.Simple がクリックされた")}}
-      className={style.simple} // 追加のスタイル指定（option）
-    />
+      className={style.simple} // 追加のスタイル指定（オプション）
+    >
+      <p>わはー</p>
+    </Button.Simple>
   );
 };`, //` シンタックスのバグ避け
+    // }}}
   },
 
   {
@@ -67,7 +74,8 @@ const buttonList = [
       <p>ロード中はクリックできなくなる</p>
     </>, 
     comp: <LoadingButtonSample />,
-    code: String.raw`const LoadingButtonSample: React.FC<{}> = () => {
+    code: // {{{
+      String.raw`const LoadingButtonSample: React.FC<{}> = () => {
 
   const [isLoading, setIsLoading] = useState(false); // true ならロード中
   const onClick = () => {
@@ -80,14 +88,16 @@ const buttonList = [
 
   return(
     <Button.Loading 
-      labels={["通常時", "ロード中..."]} // JSXも可
       isLoading={isLoading}
       onClick={onClick}
       className={style.loading} // 追加のスタイル指定（option）
       altClassName={style.loadingAlt} // ロード中での追加スタイル（option）
-    />
+    >
+      {!isLoading ? <p>通常時</p> : <p>ロード中...</p>}
+    </Button.Loading>
   );
 };`, //` シンタックスのバグ避け
+    // }}}
   },
 ];
 

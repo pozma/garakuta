@@ -5,10 +5,10 @@
   // 表示
   display: inline-block;
   padding: 0.7rem 0.9rem;
-  border: 2px solid colorset.$black;
-  border-radius: 10px; // 角を丸める
   color: colorset.$black;
   background: colorset.$white;
+  border: 2px solid currentColor;
+  border-radius: 10px; // 角を丸める
 
   // ラベル
   font-size: 0.8rem;
