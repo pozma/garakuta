@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 // 箱タイプ
-export const Box: React.FCXI<{}> = (props) => {
-  const {className, ...other} = props;
+export const Box: React.FCI<{}> = (props) => {
+  const {id, className, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.box} ${className}`}>
+    <div className={`${style.box} ${className}`} id={id}>
       <input 
         {...other}
         type={mask ? "password" : "text"} // 表示/非表示切替
@@ -25,11 +25,11 @@ export const Box: React.FCXI<{}> = (props) => {
 };
 
 // 下線タイプ
-export const Underline: React.FCXI<{}> = (props) => {
-  const {className, ...other} = props;
+export const Underline: React.FCI<{}> = (props) => {
+  const {id, className, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.underline} ${className}`}>
+    <div className={`${style.underline} ${className}`} id={id}>
       <input 
         {...other}
         type={mask ? "password" : "text"} // 表示/非表示切替

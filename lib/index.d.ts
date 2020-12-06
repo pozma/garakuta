@@ -3,9 +3,9 @@ declare module "react" {
   // props に className? を取る React.FC の拡張型
   type FCX<P = {}> = FC<P & { className?: string }>
   // for <Button>
-  type FCXB<P = {}> = FCX<P & React.ButtonHTMLAttributes<HTMLButtonElement>>
+  type FCB<P = {}> = FC<P & React.ButtonHTMLAttributes<HTMLButtonElement>>
   // for <input>
-  type FCXI<P = {}> = FCX<P & React.InputHTMLAttributes<HTMLInputElement>>
+  type FCI<P = {}> = FC<P & React.InputHTMLAttributes<HTMLInputElement>>
 };
 
 type label = string | JSX.Element;
@@ -13,8 +13,8 @@ type label = string | JSX.Element;
 
 export declare const Button: {
 
-  Simple: React.FCXB<{}>;
-  Loading: React.FCXB<{
+  Simple: React.FCB<{}>;
+  Loading: React.FCB<{
     isLoading: boolean;
     altClassName?: string;
   }>;
@@ -25,13 +25,13 @@ export declare const Button: {
 export declare const Input: {
 
   Text: {
-    Box: React.FCXI<{}>;
-    Underline: React.FCXI<{}>;
+    Box: React.FCI<{id?:string;}>;
+    Underline: React.FCI<{}>;
   };
 
   Password: {
-    Box: React.FCXI<{}>;
-    Underline: React.FCXI<{}>;
+    Box: React.FCI<{}>;
+    Underline: React.FCI<{}>;
   };
 
 }

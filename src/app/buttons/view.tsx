@@ -13,7 +13,7 @@ const SimpleButtonSample: React.FC<{}> = () => {
   return(
     <Button.Simple 
       onClick={() => {console.log("Button.Simple がクリックされた")}}
-      className={style.simple} // 追加のスタイル指定（オプション）
+      className={style.buttonSample} // 追加のスタイル指定
     >
       <p>わはー</p>
     </Button.Simple>
@@ -37,8 +37,8 @@ const LoadingButtonSample: React.FC<{}> = () => {
     <Button.Loading 
       isLoading={isLoading}
       onClick={onClick}
-      className={style.loading} // 追加のスタイル指定（option）
-      altClassName={style.loadingAlt} // ロード中での追加スタイル（option）
+      className={style.buttonSample} // 追加のスタイル指定
+      // altClassName={} // ロード中での追加スタイル（option）
     >
       {!isLoading ? <p>通常時</p> : <p>ロード中...</p>}
     </Button.Loading>
@@ -58,7 +58,7 @@ const buttonList = [
   return(
     <Button.Simple 
       onClick={() => {console.log("Button.Simple がクリックされた")}}
-      className={style.simple} // 追加のスタイル指定（オプション）
+      className={style.buttonSample} // 追加のスタイル指定（オプション）
     >
       <p>わはー</p>
     </Button.Simple>
@@ -90,8 +90,8 @@ const buttonList = [
     <Button.Loading 
       isLoading={isLoading}
       onClick={onClick}
-      className={style.loading} // 追加のスタイル指定（option）
-      altClassName={style.loadingAlt} // ロード中での追加スタイル（option）
+      className={style.buttonSample} // 追加のスタイル指定
+      // altClassName={} // ロード中での追加スタイル（option）
     >
       {!isLoading ? <p>通常時</p> : <p>ロード中...</p>}
     </Button.Loading>

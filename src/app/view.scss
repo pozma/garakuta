@@ -26,11 +26,13 @@ header { // ヘッダー
     h1 { // タイトル
       font-size: 1.5rem;
       font-weight: 600;
+      color: inherit;
       margin: 0;
     }
     p { // github url
       font-size: 0.8rem;
       text-decoration: underline;
+      color: inherit;
     }
   }
 }
@@ -62,12 +64,13 @@ main { // コンテンツ
 footer {
   grid-area: footer;
   background: palette.$footer_bg;
-  color: palette.$footer_fg;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  & > p {
+    font-size: 0.8rem;
+    color: palette.$footer_fg;
+  }
 }
 
 

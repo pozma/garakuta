@@ -2,7 +2,7 @@ import * as React from "react";
 import style from "./basic.scss";
 
 // 何の変哲もないただのボタン
-export const Simple: React.FCXB<{}> = (props) => {
+export const Simple: React.FCB<{}> = (props) => {
 
   const {className, ...other} = props;
   return (
@@ -17,7 +17,7 @@ export const Simple: React.FCXB<{}> = (props) => {
 
 
 // 通常とロード中の状態を持つボタン（ロード中は押せない）
-export const Loading: React.FCXB<{
+export const Loading: React.FCB<{
   isLoading: boolean; // true -> ロード中
   altClassName?: string; // ロード中のみ適用するスタイル
 }> = (props) => {

@@ -14,7 +14,7 @@ const BoxTextSample: React.FC<{}> = () => {
     <Input.Text.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.box} // 追加のスタイル指定
+      className={style.textInputSample} // 追加のスタイル指定
     />
   );
 };
@@ -37,7 +37,7 @@ const UnderlineTextSample: React.FC<{}> = () => {
         placeholder="A-Z, a-z, 0-9, _ が使えます"
         value={value}
         onChange={e => setValue(e.target.value)}
-        className={style.underline} // 追加のスタイル指定
+        className={style.textInputSample} // 追加のスタイル指定
       />
       <p className={style.alert}>{alert}</p>
     </label>
@@ -53,7 +53,7 @@ const BoxPasswordSample: React.FC<{}> = () => {
     <Input.Password.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.box} // 追加のスタイル指定
+      className={style.textInputSample} // 追加のスタイル指定
     />
   );
 };
@@ -80,7 +80,7 @@ const UnderlinePasswordSample: React.FC<{}> = () => {
         onChange={e => setValue(e.target.value)}
         onFocus={e => setAlert("")} // フォーカス時
         onBlur={validate} // アンフォーカス時
-        className={style.underline} // 追加のスタイル指定
+        className={style.textInputSample} // 追加のスタイル指定
       />
       <p className={style.alert}>{alert}</p>
     </label>
@@ -103,7 +103,7 @@ const inputList = [
     <Input.Text.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.box} // 追加のスタイル指定
+      className={style.textInputSample} // 追加のスタイル指定
     />
   );
 };`, //` シンタックスのバグ避け
@@ -133,7 +133,7 @@ const inputList = [
         placeholder="A-Z, a-z, 0-9, _ が使えます"
         value={value}
         onChange={e => setValue(e.target.value)}
-        className={style.underline} // 追加のスタイル指定
+        className={style.textInputSample} // 追加のスタイル指定
       />
       <p className={style.alert}>{alert}</p>
     </label>
@@ -155,7 +155,7 @@ const inputList = [
     <Input.Password.Box 
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={style.box} // 追加のスタイル指定
+      className={style.textInputSample} // 追加のスタイル指定
     />
   );
 };`, //` シンタックスのバグ避け
@@ -189,7 +189,7 @@ const inputList = [
         onChange={e => setValue(e.target.value)}
         onFocus={e => setAlert("")} // フォーカス時
         onBlur={validate} // アンフォーカス時
-        className={style.underline} // 追加のスタイル指定
+        className={style.textInputSample} // 追加のスタイル指定
       />
       <p className={style.alert}>{alert}</p>
     </label>

@@ -12,8 +12,11 @@
     width: 100%;
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
-    border: solid currentColor 1px;
+    border: solid currentColor 2px;
     border-radius: inherit;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
