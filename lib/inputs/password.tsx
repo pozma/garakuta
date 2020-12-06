@@ -9,15 +9,13 @@ type label = string | JSX.Element;
 
 // マスク表示切替機能付きのパスワード入力欄
 export const Simple: React.FCXI<{}> = (props) => {
+  const {className, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.simple} ${props.className}`}>
+    <div className={`${style.simple} ${className}`}>
       <input 
+        {...other}
         type={mask ? "password" : "text"} // 表示/非表示切替
-        value={props.value} 
-        onChange={props.onChange}
-        onFocus={props.onFocus}
-        onBlur={props.onBlur}
       />
       <FontAwesomeIcon // 表示切替アイコン
         className={style.toggle} 
@@ -29,21 +27,17 @@ export const Simple: React.FCXI<{}> = (props) => {
 };
 
 // ラベル付きパスワード入力欄
-export const Labeled: React.FCXI<{
-  label: label; // 入力項目名
-}> = (props) => {
+export const Labeled: React.FCXI<{ label: label; }> = (props) => {
+  const {className, label, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.labeled} ${props.className}`}>
+    <div className={`${style.labeled} ${className}`}>
       <label>
-        <h1>{props.label}</h1>
+        <h1>{label}</h1>
         <span>
           <input 
+            {...other}
             type={mask ? "password" : "text"} // 表示/非表示切替
-            value={props.value} 
-            onChange={props.onChange}
-            onFocus={props.onFocus}
-            onBlur={props.onBlur}
           />
           <FontAwesomeIcon // 表示切替アイコン
             className={style.toggle} 
@@ -57,23 +51,17 @@ export const Labeled: React.FCXI<{
 };
 
 // プレースホルダーにラベルを表示
-export const Placeholder: React.FCXI<{
-  label: label; // 入力項目名
-  placeholder: string;
-}> = (props) => {
+export const Placeholder: React.FCXI<{ label: label; }> = (props) => {
+  const {className, label, ...other} = props;
   const [mask, setMask] = useState(true); // trueならマスキング
   return(
-    <div className={`${style.placeholder} ${props.className}`}>
+    <div className={`${style.placeholder} ${className}`}>
       <label>
-        <h1>{props.label}</h1>
+        <h1>{label}</h1>
         <span>
           <input 
+            {...other}
             type={mask ? "password" : "text"} // 表示/非表示切替
-            placeholder={props.placeholder}
-            value={props.value} 
-            onChange={props.onChange}
-            onFocus={props.onFocus}
-            onBlur={props.onBlur}
           />
           <FontAwesomeIcon // 表示切替アイコン
             className={style.toggle} 

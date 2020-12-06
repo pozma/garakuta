@@ -2,17 +2,10 @@ import * as React from "react";
 declare module "react" {
   // props に className? を取る React.FC の拡張型
   type FCX<P = {}> = FC<P & { className?: string }>
-  // さらに拡張した props に onClick を取る型（ボタン用）
-  type FCXB<P = {}> = FCX<P & { 
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  }>
-  // props に value, setValue を取る型（インプット用）
-  type FCXI<P = {}> = FCX<P & { 
-    value: string; // 入力値
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  }>
+  // for <Button>
+  type FCXB<P = {}> = FCX<P & React.ButtonHTMLAttributes<HTMLButtonElement>>
+  // for <input>
+  type FCXI<P = {}> = FCX<P & React.InputHTMLAttributes<HTMLInputElement>>
 };
 
 type label = string | JSX.Element;
@@ -44,7 +37,6 @@ export declare const Input: {
 
     Placeholder: React.FCXI<{
       label: label;
-      placeholder: string;
     }>;
   };
 
@@ -57,7 +49,6 @@ export declare const Input: {
 
     Placeholder: React.FCXI<{
       label: label;
-      placeholder: string;
     }>;
   };
 

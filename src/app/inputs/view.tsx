@@ -14,8 +14,6 @@ const SimpleTextSample: React.FC<{}> = () => {
     <Input.Text.Simple 
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.simple} // 追加のスタイル指定（option）
     />
   );
@@ -30,8 +28,6 @@ const LabeledTextSample: React.FC<{}> = () => {
       label="らべる" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.labeled} // 追加のスタイル指定（option）
     />
   );
@@ -53,9 +49,8 @@ const PlaceholderTextSample: React.FC<{}> = () => {
       placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
+      type="password"
     />
     <div className={style.alert}>{alert}</div>
   </>);
@@ -70,8 +65,6 @@ const SimplePasswordSample: React.FC<{}> = () => {
     <Input.Password.Simple 
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.simple} // 追加のスタイル指定（option）
     />
   );
@@ -87,8 +80,6 @@ const LabeledPasswordSample: React.FC<{}> = () => {
       label="ぱすわーど" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.labeled} // 追加のスタイル指定（option）
     />
   );
@@ -112,8 +103,8 @@ const PlaceholderPasswordSample: React.FC<{}> = () => {
       placeholder="5文字以上必要です" // これはstringのみ
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => setAlert("")} // フォーカス時の挙動（option）
-      onBlur={validate} // アンフォーカス時の挙動（option）
+      onFocus={e => setAlert("")} // フォーカス時
+      onBlur={validate} // アンフォーカス時
       className={style.placeholder} // 追加のスタイル指定（option）
     />
     <div className={style.alert}>{alert}</div>
@@ -136,8 +127,6 @@ const inputList = [
     <Input.Text.Simple 
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.simple} // 追加のスタイル指定（option）
     />
   );
@@ -159,8 +148,6 @@ const inputList = [
       label="らべる" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.labeled} // 追加のスタイル指定（option）
     />
   );
@@ -188,8 +175,6 @@ const inputList = [
       placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.placeholder} // 追加のスタイル指定（option）
     />
     <div className={style.alert}>{alert}</div>
@@ -211,8 +196,6 @@ const inputList = [
     <Input.Password.Simple 
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.simple} // 追加のスタイル指定（option）
     />
   );
@@ -234,8 +217,6 @@ const inputList = [
       label="ぱすわーど" // JSXも可
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => {}} // フォーカス時の挙動（option）
-      onBlur={e => {}} // アンフォーカス時の挙動（option）
       className={style.labeled} // 追加のスタイル指定（option）
     />
   );
@@ -265,8 +246,8 @@ const inputList = [
       placeholder="5文字以上必要です" // これはstringのみ
       value={value}
       onChange={e => setValue(e.target.value)}
-      onFocus={e => setAlert("")} // フォーカス時の挙動（option）
-      onBlur={validate} // アンフォーカス時の挙動（option）
+      onFocus={e => setAlert("")} // フォーカス時
+      onBlur={validate} // アンフォーカス時
       className={style.placeholder} // 追加のスタイル指定（option）
     />
     <div className={style.alert}>{alert}</div>

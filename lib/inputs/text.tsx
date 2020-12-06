@@ -6,33 +6,27 @@ type label = string | JSX.Element;
 
 // 単純なテキスト入力フィールド
 export const Simple: React.FCXI<{}> = (props) => {
+  const {className, ...other} = props;
   return(
-    <div className={`${style.simple} ${props.className}`}>
+    <div className={`${style.simple} ${className}`}>
       <input 
+        {...other}
         type="text" 
-        value={props.value} 
-        onChange={props.onChange}
-        onFocus={props.onFocus}
-        onBlur={props.onBlur}
       />
     </div>
   );
 };
 
 // ラベル付き
-export const Labeled: React.FCXI<{
-  label: label; // 入力項目名
-}> = (props) => {
+export const Labeled: React.FCXI<{ label: label; }> = (props) => {
+  const {className, label, ...other} = props;
   return(
-    <div className={`${style.labeled} ${props.className}`}>
+    <div className={`${style.labeled} ${className}`}>
       <label>
-        <h1>{props.label}</h1>
+        <h1>{label}</h1>
         <input 
+          {...other}
           type="text" 
-          value={props.value} 
-          onChange={props.onChange}
-          onFocus={props.onFocus}
-          onBlur={props.onBlur}
         />
       </label>
     </div>
@@ -40,21 +34,15 @@ export const Labeled: React.FCXI<{
 };
 
 // プレースホルダーにラベルを表示
-export const Placeholder: React.FCXI<{
-  label: label; // 入力項目名
-  placeholder: string;
-}> = (props) => {
+export const Placeholder: React.FCXI<{ label: label; }> = (props) => {
+  const {className, label, ...other} = props;
   return(
-    <div className={`${style.placeholder} ${props.className}`}>
+    <div className={`${style.placeholder} ${className}`}>
       <label>
-        <h1>{props.label}</h1>
+        <h1>{label}</h1>
         <input 
+          {...other}
           type="text" 
-          placeholder={props.placeholder}
-          value={props.value} 
-          onChange={props.onChange}
-          onFocus={props.onFocus}
-          onBlur={props.onBlur}
         />
       </label>
     </div>

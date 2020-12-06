@@ -4,16 +4,15 @@ import style from "./basic.scss";
 type label = string | JSX.Element; // ボタンのテキストの型（JSXでも受け付ける）
 
 // 何の変哲もないただのボタン
-export const Simple: React.FCXB<{
-  label: label; // ボタンのテキスト
-}> = (props) => {
+export const Simple: React.FCXB<{ label: label; }> = (props) => {
 
+  const {label, className, ...other} = props;
   return (
     <button
-      className={`${style.simple} ${props.className}`}
-      onClick={props.onClick}
+      {...other}
+      className={`${style.simple} ${className}`}
     >
-      {props.label}
+      {label}
     </button>
   );
 };
@@ -26,25 +25,27 @@ export const Loading: React.FCXB<{
   altClassName?: string; // ロード中のみ適用するスタイル
 }> = (props) => {
 
+  const {className, labels, isLoading, altClassName, ...other} = props;
+
   const normal: JSX.Element = ( // 通常状態
     <button
-      className={`${style.loading_normal} ${props.className}`}
-      onClick={props.onClick}
+      {...other}
+      className={`${style.loading_normal} ${className}`}
     >
-      {props.labels[0]}
+      {labels[0]}
     </button>
   );
 
   const busy: JSX.Element = ( // ロード中
     <button
-      className={`${style.loading_busy} ${props.className} ${props.altClassName}`}
+      className={`${style.loading_busy} ${className} ${altClassName}`}
       onClick={() => {}}
     >
-      {props.labels[1]}
+      {labels[1]}
     </button>
   );
 
-  return (props.isLoading ? <>{busy}</> : <>{normal}</>);
+  return (isLoading ? <>{busy}</> : <>{normal}</>);
 };
 
 
