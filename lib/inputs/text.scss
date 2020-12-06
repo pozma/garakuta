@@ -1,93 +1,37 @@
 @use "../palette";
 
-.box input { // 箱
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-}
+.box {
+  color: palette.$foreground;
+  background: palette.$background;
+  border-radius: 5px;
 
-.underline input {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-bottom: solid palette.$foreground 2px;
-  margin-bottom: 0.2rem;
-  font-size: 0.9rem;
-  &:focus {
-    outline: none; // 枠線非表示
-  }
-}
-
-@mixin text($name_fg:palette.$black, $desc_fg:palette.$light) { // 一行入力のとこ
-  text-align: left;
-  position: relative;
-
-  .label { // ラベル
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 0.8rem;
-
-    .title { // 入力項目名
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      color: $name_fg;
-    }
-
-    .desc { // 補足
-      font-size: 0.8rem;
-      color: $desc_fg;
-    }
-  }
-
-  .field { // input box
+  input { // 箱
+    color: inherit;
+    background: inherit;
     box-sizing: border-box;
     width: 100%;
-    height: 2.4rem;
-    padding: 0rem 0.8rem;
-    z-index: 0;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border: solid currentColor 1px;
+    border-radius: inherit;
   }
+}
 
-  .toggle { // password 表示/非表示のアイコン
-    z-index: 2;
-    font-size: 1.2rem;
-    opacity: 0.4;
-    position: absolute;
-    right: 0.6rem;
-    bottom: 0.6rem;
-    color: palette.$dark;
-    cursor: pointer;
-  }
+.underline {
+  color: palette.$foreground;
+  background: palette.$background;
 
-  .callout { // フォーム横に吹き出しで出す注釈
-    $width: 0.8rem * 7 + 0.1rem;
-    $padding: 1rem;
-
-    position: absolute;
-    width: $width;
-    top: 2rem;
-    right: -1 * ($width + 2 * $padding + 1.3rem);
-    z-index: 5;
-    padding: $padding;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    line-height: 1.5rem;
-    color: palette.$yellow;
-    background-color: palette.$darkgray;
-
-    &::before { // 吹き出しの三角部分の描写
-      $size: 12px;
-      content: "";
-      position: absolute;
-      top: 0rem;
-      left: -(2 * $size - $size*0.2);
-      margin-top: 12px;
-      border: ($size*0.8) solid transparent;
-      border-right: $size solid palette.$darkgray;
+  input {
+    color: inherit;
+    background: inherit;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-bottom: solid currentColor 2px;
+    font-size: 0.9rem;
+    &:focus {
+      outline: none; // 枠線非表示
     }
   }
 }

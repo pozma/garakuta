@@ -34,7 +34,7 @@ const UnderlineTextSample: React.FC<{}> = () => {
     <label>
       <p className={style.label}>{"Username"}</p>
       <Input.Text.Underline 
-        placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
+        placeholder="A-Z, a-z, 0-9, _ が使えます"
         value={value}
         onChange={e => setValue(e.target.value)}
         className={style.underline} // 追加のスタイル指定
@@ -75,7 +75,7 @@ const UnderlinePasswordSample: React.FC<{}> = () => {
     <label>
       <p className={style.label}>{"Password"}</p>
       <Input.Password.Underline 
-        placeholder="5文字以上必要です" // これはstringのみ
+        placeholder="5文字以上必要です"
         value={value}
         onChange={e => setValue(e.target.value)}
         onFocus={e => setAlert("")} // フォーカス時
@@ -121,18 +121,23 @@ const inputList = [
   const [value, setValue] = useState("");
   const [alert, setAlert] = useState("");
   const inputAlert = "使用できない文字が含まれています！";
+
   useEffect(() => { // 入力値のチェック
     setAlert(!value.match(/^[A-Za-z0-9_]*$/) ? inputAlert : "");
   }, [value]);
-  return(<>
-    <Input.Text.Underline 
-      placeholder="A-Z, a-z, 0-9, _ が使えます" // これはstringのみ
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      className={style.underline} // 追加のスタイル指定
-    />
-    <div className={style.alert}>{alert}</div>
-  </>);
+
+  return(
+    <label>
+      <p className={style.label}>{"Username"}</p>
+      <Input.Text.Underline 
+        placeholder="A-Z, a-z, 0-9, _ が使えます"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        className={style.underline} // 追加のスタイル指定
+      />
+      <p className={style.alert}>{alert}</p>
+    </label>
+  );
 };`, //` シンタックスのバグ避け
     // }}}
   },
@@ -168,22 +173,27 @@ const inputList = [
   const [value, setValue] = useState("");
   const [alert, setAlert] = useState("");
   const inputAlert = "パスワードが短すぎます！";
+
   const validate = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (value.length > 0 && value.length < 5) {
       setAlert(inputAlert);
     };
   };
-  return(<>
-    <Input.Password.Underline 
-      placeholder="5文字以上必要です" // これはstringのみ
-      value={value}
-      onChange={e => setValue(e.target.value)}
-      onFocus={e => setAlert("")} // フォーカス時
-      onBlur={validate} // アンフォーカス時
-      className={style.underline} // 追加のスタイル指定
-    />
-    <div className={style.alert}>{alert}</div>
-  </>);
+
+  return(
+    <label>
+      <p className={style.label}>{"Password"}</p>
+      <Input.Password.Underline 
+        placeholder="5文字以上必要です"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        onFocus={e => setAlert("")} // フォーカス時
+        onBlur={validate} // アンフォーカス時
+        className={style.underline} // 追加のスタイル指定
+      />
+      <p className={style.alert}>{alert}</p>
+    </label>
+  );
 };`, //` シンタックスのバグ避け
     // }}}
   },
