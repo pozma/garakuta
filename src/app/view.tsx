@@ -45,10 +45,8 @@ export const App: React.FC<{}> = () => {
 
       <nav>
         <ul>
-          <li><Link to={CONST.REPO + CONST.LOCATION_URL_HOME}>ほーむ</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_BUTTONS}>ボタン</Link></li>
-          <li><Link to={CONST.REPO + CONST.LOCATION_URL_INPUTS}>フォーム部品</Link></li>
-          <li><Link to={CONST.REPO + CONST.LOCATION_URL_FORMS}>フォーム</Link></li>
+          <li><Link to={CONST.REPO + CONST.LOCATION_URL_INPUTS}>入力欄</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_MODALS}>モーダル</Link></li>
           <li><Link to={CONST.REPO + CONST.LOCATION_URL_LOADERS}>ローダー</Link></li>
         </ul>
@@ -59,7 +57,6 @@ export const App: React.FC<{}> = () => {
           <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_INPUTS}><Inputs /></Route>
-          <Route path={CONST.REPO + CONST.LOCATION_URL_FORMS}><p>おほー</p></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_LOADERS}><Loaders /></Route>
         </Switch>

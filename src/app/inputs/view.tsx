@@ -207,7 +207,7 @@ export const Inputs: React.FC<{}> = () => {
   const imp = String.raw`import { Input } from "garakuta";`;
   return(
     <div className={style.wrapper}>
-      <h1>フォーム部品</h1>
+      <h1>入力欄</h1>
       <hr />
       <div className={style.desc}>
         <pre className="prettyprint lang-js linenums">{imp}</pre>
