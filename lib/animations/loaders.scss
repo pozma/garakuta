@@ -1,8 +1,8 @@
-@use "../colorset";
+@use "../palette";
 
 // ローディングアニメーション
 // 8個の丸が円形に並んでて順番に点灯してくやつ
-@mixin circles($duration: 1.0s, $color: colorset.$white, $size: 10px) {
+@mixin circles($duration: 1.0s, $color: palette.$foreground, $size: 10px) {
   font-size: $size; // 各丸の位置はこれの相対サイズで計算される
   width: 1em; // 各丸の幅
   height: 1em; // 各丸の高さ

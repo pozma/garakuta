@@ -11,11 +11,12 @@ export const Samples: React.FC<{
     comp: JSX.Element;
     code: string;
   }[];
+  lang: string;
 }> = (props) => {
 
   useEffect(() => { // レンダーのときに <script> タグを読み込んでほしい
     const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert";
+    script.src = "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=css&skin=desert";
     script.async = true;
     document.body.appendChild(script); // <body> にタグを追加
   }, []);
@@ -32,7 +33,7 @@ export const Samples: React.FC<{
             </div>
             <details>
               <summary>サンプルコード</summary>
-              <pre className="prettyprint lang-js linenums">{e.code}</pre>
+              <pre className={`prettyprint lang-${props.lang} linenums`}>{e.code}</pre>
             </details>
           </div>
         );

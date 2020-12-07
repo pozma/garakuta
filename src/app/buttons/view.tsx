@@ -113,7 +113,7 @@ export const Buttons: React.FC<{}> = () => {
       <div className={style.desc}>
         <pre className="prettyprint lang-js linenums">{imp}</pre>
       </div>
-      <Samples sampleList={buttonList} />
+      <Samples sampleList={buttonList} lang="js" />
     </div>
   );
 

@@ -212,7 +212,7 @@ export const Inputs: React.FC<{}> = () => {
       <div className={style.desc}>
         <pre className="prettyprint lang-js linenums">{imp}</pre>
       </div>
-      <Samples sampleList={inputList} />
+      <Samples sampleList={inputList} lang="js" />
     </div>
   );
 
