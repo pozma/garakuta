@@ -1,0 +1,13 @@
+@use "./../palette";
+@use "./../sample";
+
+.wrapper {
+  @include sample.wrapper();
+}
+
+.modalContent {
+  background: palette.$main_bg;
+  padding: 2rem;
+  border: solid palette.$main_fg 2px;
+}
+

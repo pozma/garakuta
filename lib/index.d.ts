@@ -6,6 +6,8 @@ declare module "react" {
   type FCB<P = {}> = FC<P & React.ButtonHTMLAttributes<HTMLButtonElement>>
   // for <input>
   type FCI<P = {}> = FC<P & React.InputHTMLAttributes<HTMLInputElement>>
+  // for <div>
+  type FCD<P = {}> = FC<P & React.HTMLAttributes<HTMLDivElement>>
 };
 
 type label = string | JSX.Element;
@@ -33,6 +35,12 @@ export declare const Input: {
     Box: React.FCI<{}>;
     Underline: React.FCI<{}>;
   };
+
+}
+
+export declare const Modal: {
+
+  Simple: React.FCD<{}>;
 
 }
 

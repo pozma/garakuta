@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom
 import * as CONST from "./../constants";
 import { Buttons } from "./buttons/view";
 import { Inputs } from "./inputs/view";
+import { Modals } from "./modals/view";
 import { Loaders } from "./loaders/view";
 
 // SCSS module import
@@ -57,7 +58,7 @@ export const App: React.FC<{}> = () => {
           <Route exact path={CONST.REPO + CONST.LOCATION_URL_HOME}><Home /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_BUTTONS}><Buttons /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_INPUTS}><Inputs /></Route>
-          <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><p>あはー</p></Route>
+          <Route path={CONST.REPO + CONST.LOCATION_URL_MODALS}><Modals /></Route>
           <Route path={CONST.REPO + CONST.LOCATION_URL_LOADERS}><Loaders /></Route>
         </Switch>
       </main>

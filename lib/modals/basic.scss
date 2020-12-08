@@ -1,0 +1,20 @@
+@use "./../palette";
+
+.mask { // 画面を隠す半透明のオーバーレイ（全モーダルで共通）
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: gray;
+  opacity: 0.4;
+  z-index: 99;
+}
+
+.simple {
+  .modal { // 主に位置調整
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); // 基準点を中央に
+    z-index: 100;
+  }
+}
+
