@@ -1,37 +1,14 @@
 import * as React from "react";
-import { BrowserRouter, Switch, Route, Link, useHistory } from "react-router-dom";
-
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import * as CONST from "./../constants";
+import { Home } from "./home";
 import { Buttons } from "./buttons/view";
 import { Inputs } from "./inputs/view";
 import { Modals } from "./modals/view";
 import { Loaders } from "./loaders/view";
-
-// SCSS module import
 import style from "./view.scss";
 
-const Home: React.FC<{}> = () => {
 
-  // URL 直叩きからのリダイレクトか判定
-  const redirect = sessionStorage.getItem("redirect");
-  if (redirect) {
-    for (const location of CONST.LOCATIONS) {
-      if (redirect === location) { // 404 で保存された値がページ URL と一致
-        const history = useHistory();
-        history.push(CONST.REPO + redirect); // SPA 側での URL セット
-      };
-    }
-    sessionStorage.removeItem("redirect");
-  }
-
-  return(
-    <>
-      <p>ほーむ</p>
-    </>
-  );
-};
-
-// 全体の画面
 export const App: React.FC<{}> = () => {
 
   return (
