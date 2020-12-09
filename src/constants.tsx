@@ -13,4 +13,4 @@ export const LOCATIONS = [
   LOCATION_URL_LOADERS,
 ];
 
-export const GITHUB_URL = "https://github.com/qzbx/garakuta";
+export const GITHUB_URL = "https://github.com/pozma/garakuta";

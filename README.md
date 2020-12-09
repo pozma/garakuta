@@ -1,1 +1,1 @@
-https://qzbx.github.io/garakuta
+https://pozma.github.io/garakuta

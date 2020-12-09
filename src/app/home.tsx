@@ -19,7 +19,7 @@ export const Home: React.FC<{}> = () => {
 
   const imp = String.raw`{
   "dependencies": {
-    "garakuta": "https://github.com/qzbx/garakuta.git",
+    "garakuta": "https://github.com/pozma/garakuta.git",
     ...
   },
   ...
