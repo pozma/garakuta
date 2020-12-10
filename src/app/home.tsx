@@ -17,13 +17,7 @@ export const Home: React.FC<{}> = () => {
     sessionStorage.removeItem("redirect"); // ストレージから値削除
   }
 
-  const imp = String.raw`{
-  "dependencies": {
-    "garakuta": "https://github.com/pozma/garakuta.git",
-    ...
-  },
-  ...
-}`;
+  const imp = String.raw`npm i pozma/garakuta`;
 
   return(
     <div className={style.home}>
@@ -38,7 +32,6 @@ export const Home: React.FC<{}> = () => {
       <section>
         <h1>インストール</h1>
         <hr />
-        <p><code>package.json</code> に以下を記述して <code>npm install</code></p>
         <pre>{imp}</pre>
       </section>
 
