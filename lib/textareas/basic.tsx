@@ -4,7 +4,7 @@ import c from "./basic.scss";
 
 // 高さ自動調節タイプ
 export const Expand: React.FCT<{}> = (props) => {
-  const {className, ...other} = props; // rows プロパティは行数の初期値として扱う
+  const {id, className, ...other} = props; // rows プロパティは行数の初期値として扱う
   const textareaRef = useRef<HTMLTextAreaElement>(null); // <textarea> への参照
 
   // 高さ調節の effect
@@ -22,11 +22,12 @@ export const Expand: React.FCT<{}> = (props) => {
   }, [textareaRef.current?.value]) // <textarea> の値変更で effect 発火
 
   return (
-    <textarea 
-      ref={textareaRef}
-      className={`${c.autoexpand} ${className}`}
-      {...other} // rows も（あれば）ここで（初期行数として）適用される
-    />
+    <div className={`${c.expand} ${className}`} id={id}>
+      <textarea 
+        ref={textareaRef}
+        {...other} // rows も（あれば）ここで（初期行数として）適用される
+      />
+    </div>
   )
 };
 
