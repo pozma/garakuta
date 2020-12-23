@@ -8,6 +8,10 @@ declare module "react" {
   type FCI<P = {}> = FC<P & React.InputHTMLAttributes<HTMLInputElement>>
   // for <textarea>
   type FCT<P = {}> = FC<P & React.TextareaHTMLAttributes<HTMLTextAreaElement>>
+  // for <select>
+  type FCS<P = {}> = FC<P & React.SelectHTMLAttributes<HTMLSelectElement>>
+  // for <ul>
+  type FCU<P = {}> = FC<P & React.HTMLAttributes<HTMLUListElement>>
   // for <div>
   type FCD<P = {}> = FC<P & React.HTMLAttributes<HTMLDivElement>>
 };
@@ -39,9 +43,20 @@ export declare const Input: {
 
 }
 
+
 export declare const Textarea: {
 
   Expand: React.FCT<{}>;
+
+}
+
+
+export declare const Select: {
+
+  Simple: React.FCU<{ 
+    status?: JSX.Element;
+    onClick?: (e: React.MouseEvent<HTMLLIElement>) => void;
+  }>;
 
 }
 

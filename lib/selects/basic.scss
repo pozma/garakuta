@@ -1,0 +1,46 @@
+@use "../palette" as pl;
+
+ul.simple {
+  $border-width: 2px;
+
+  color: pl.$foreground;
+  background: pl.$background;
+  list-style: none;
+  outline: solid currentColor $border-width;
+  box-sizing: border-box;
+  padding: 0;
+
+  & > li {
+    box-sizing: border-box;
+    padding: 0;
+    position: relative;
+
+    &:first-child { // 選択したものが表示されるとこ（トップ）
+      box-sizing: border-box;
+      outline: solid currentColor $border-width;
+      cursor: pointer;
+      padding: 0.8rem; // こっちに入れないとクリックが反映されない
+      display: flex;
+      justify-content: space-between;
+
+      & > p.icon { // アイコン部分
+        color: currentColor;
+      }
+    }
+
+    & > ul { // オプション一覧
+      position: absolute;
+      top: $border-width;
+      box-sizing: border-box;
+      width: 100%;
+      outline: solid currentColor $border-width;
+      list-style: none;
+      & > li { // 各オプション（children 部分）
+        padding: 0.8rem;
+      }
+    }
+  }
+
+}
+
+
