@@ -32,17 +32,19 @@ export declare const Input: {
     Box: React.FCI<{}>;
     Underline: React.FCI<{}>;
   };
-
   Password: {
     Box: React.FCI<{}>;
     Underline: React.FCI<{}>;
   };
 
-  TextArea: {
-    AutoExpand: React.FCT<{}>;
-  };
+}
+
+export declare const Textarea: {
+
+  Expand: React.FCT<{}>;
 
 }
+
 
 export declare const Modal: {
 

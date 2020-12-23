@@ -1,0 +1,29 @@
+@use "./../palette";
+@use "./../sample";
+
+.wrapper {
+  @include sample.wrapper();
+}
+
+.textareaSample {
+  width: 18rem;
+}
+
+p {
+
+  &.label { // 各欄のラベル
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  &.alert { // アラートメッセージ
+    font-size: 0.75rem;
+    line-height: 1.4rem;
+    color: palette.$alert_fg;
+    text-align: right;
+    margin-top: 0.2rem;
+  }
+
+}
+
