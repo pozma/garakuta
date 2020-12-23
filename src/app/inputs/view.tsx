@@ -88,6 +88,21 @@ const UnderlinePasswordSample: React.FC<{}> = () => {
 };
 
 
+const AutoExpandTextAreaSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+
+  return(
+    <Input.TextArea.AutoExpand 
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      rows={3} // 高さ（行数）の初期値（なければ 1 になる）
+      className={style.textInputSample} // 追加のスタイル指定
+    />
+  );
+};
+
+
 // サンプルリスト
 const inputList = [
   {
@@ -193,6 +208,28 @@ const inputList = [
       />
       <p className={style.alert}>{alert}</p>
     </label>
+  );
+};`, //` シンタックスのバグ避け
+    // }}}
+  },
+
+  {
+    title: "Input.TextArea.AutoExpand", 
+    desc: <><p>複数行入力の箱タイプ</p><p>自動で高さ調節が入る</p></>,
+    comp: <AutoExpandTextAreaSample />,
+    code:
+    // {{{
+      String.raw`const AutoExpandTextAreaSample: React.FC<{}> = () => {
+
+  const [value, setValue] = useState("");
+
+  return(
+    <Input.TextArea.AutoExpand 
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      rows={3} // 高さ（行数）の初期値（なければ 1 になる）
+      className={style.textInputSample} // 追加のスタイル指定
+    />
   );
 };`, //` シンタックスのバグ避け
     // }}}

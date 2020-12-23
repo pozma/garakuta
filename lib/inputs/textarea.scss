@@ -1,0 +1,17 @@
+@use "../palette" as pl;
+
+textarea.autoexpand {
+  color: pl.$foreground;
+  background: pl.$background;
+  padding: 0.8rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: inherit; // これを入れないと勝手に別フォントにされる
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  border: solid currentColor 2px;
+  border-radius: 5px;
+  resize: none; // リサイズのつまみを非表示
+}
+
+
