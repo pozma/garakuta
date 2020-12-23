@@ -15,6 +15,7 @@ const ExpandTextareaSample: React.FC<{}> = () => {
       value={value}
       onChange={e => setValue(e.target.value)}
       rows={3} // 高さ（行数）の初期値（なければ 1 になる）
+      placeholder="今なにしてる？"
       className={style.textareaSample} // 追加のスタイル指定
     />
   );
@@ -39,6 +40,7 @@ const sampleList = [
       value={value}
       onChange={e => setValue(e.target.value)}
       rows={3} // 高さ（行数）の初期値（なければ 1 になる）
+      placeholder="今なにしてる？"
       className={style.textareaSample} // 追加のスタイル指定
     />
   );
