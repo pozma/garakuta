@@ -17,7 +17,6 @@ const SimpleSelectSample: React.FC<{}> = () => {
       <li 
         key={i}
         onClick={() => {setIsInit(false); setValue(elem);}} // 各候補クリック
-        className={c.option} // 各候補のスタイル（&:hover で色変えしてる）
       >
         {elem}
       </li>
@@ -61,7 +60,6 @@ const sampleList = [
       <li 
         key={i}
         onClick={() => {setIsInit(false); setValue(elem);}} // 各候補クリック
-        className={c.option} // 各候補のスタイル（&:hover で色変えしてる）
       >
         {elem}
       </li>

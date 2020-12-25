@@ -4,6 +4,7 @@
   color: pl.$foreground;
   background: pl.$background;
   $border-width: 2px;
+  padding: 0;
 
   ul {
     color: inherit;
@@ -19,6 +20,7 @@
       box-sizing: border-box;
       padding: 0;
       position: relative;
+      background: inherit;
 
       &:first-child { // 選択したものが表示されるとこ（トップ）
         box-sizing: border-box;
@@ -37,11 +39,18 @@
         position: absolute;
         top: $border-width;
         box-sizing: border-box;
+        background: inherit;
         width: 100%;
         outline: solid currentColor $border-width;
         list-style: none;
         & > li { // 各オプション（children 部分）
           padding: 0.8rem;
+          cursor: pointer;
+          background: inherit;
+
+          &:hover {
+            background: #ddd;
+          }
         }
       }
     }

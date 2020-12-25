@@ -7,20 +7,11 @@
 
 .selectSample {
   width: 12rem;
-  padding: 1rem;
 
   p.placeholder {
     opacity: 0.6;
   }
 
-  li.option { // li の各候補
-    cursor: pointer;
-    background: pl.$main_bg;
-
-    &:hover {
-      background: #ddd;
-    }
-  }
 }
 
 
