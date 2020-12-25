@@ -18,6 +18,19 @@ export const Home: React.FC<{}> = () => {
   }
 
   const imp = String.raw`npm i pozma/garakuta`;
+  const webpack = String.raw`module.exports = {
+  ...,
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules(?!\/garakuta)/,
+      },
+    ],
+  },
+  ...,
+}`;
 
   return(
     <div className={style.home}>
@@ -33,6 +46,8 @@ export const Home: React.FC<{}> = () => {
         <h1>インストール</h1>
         <hr />
         <pre>{imp}</pre>
+        <p><code>webpack.config.js</code> を編集</p>
+        <pre>{webpack}</pre>
       </section>
 
       <section>
