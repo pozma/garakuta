@@ -41,7 +41,12 @@ const sampleList = [
 
   {
     title: "Select.Simple", 
-    desc: <><p>シンプルなセレクタ</p><p>select は挙動がカスなので ul で実装</p></>,
+    desc: <>
+      <p>シンプルなセレクタ</p>
+      <p>select は挙動がクソなので ul で実装</p>
+      <p>div &gt; ul の１つ目の li に「１匹選んでね」が</p>
+      <p>２つ目の li に候補リスト表示用の ul が格納されている</p>
+    </>,
     comp: <SimpleSelectSample />,
     code:
     // {{{

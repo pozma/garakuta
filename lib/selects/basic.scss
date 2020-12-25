@@ -24,7 +24,7 @@
         box-sizing: border-box;
         outline: solid currentColor $border-width;
         cursor: pointer;
-        padding: 0.8rem; // こっちに入れないとクリックが反映されない
+        padding: 0.8rem;
         display: flex;
         justify-content: space-between;
 
