@@ -7,11 +7,11 @@ export const Simple: React.FCD<{}> = (props) => {
 
   return (
     <div className={style.simple}>
+      <div className={`${style.mask} ${className}`} />
       <div 
-        className={`${style.mask} ${className}`} 
+        className={style.modal}
         {...other}
-      />
-      <div className={style.modal}>
+      >
         {children}
       </div>
     </div>

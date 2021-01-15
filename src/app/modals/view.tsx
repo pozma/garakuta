@@ -19,7 +19,12 @@ const SimpleModalSample: React.FC<{}> = () => {
       <Modal.Simple 
         onClick={e => setOpen(false)} // マスクをクリックしたときの挙動
       >
-        <div className={style.modalContent}>わはー</div>
+        <div 
+          className={style.modalContent}
+          onClick={e => e.stopPropagation()} // コンテンツクリックでは閉じないように
+        >
+          わはー
+        </div>
       </Modal.Simple>
     }
   </>);
@@ -50,7 +55,12 @@ const modalList = [
       <Modal.Simple 
         onClick={e => setOpen(false)} // マスクをクリックしたときの挙動
       >
-        <div className={style.modalContent}>わはー</div>
+        <div 
+          className={style.modalContent}
+          onClick={e => e.stopPropagation()} // コンテンツクリックでは閉じないように
+        >
+          わはー
+        </div>
       </Modal.Simple>
     }
   </>);
